@@ -55,7 +55,6 @@ Public Class AdminDashboard
             ' Get PerformanceID based on selected processor name
             Dim performanceID As Integer = -1
             Dim getPerformanceIDQuery As String = "SELECT PerformanceID FROM Performance WHERE LTRIM(RTRIM(ProcessorName)) = @ProcessorName"
-
             Using cmdPerf As New SqlCommand(getPerformanceIDQuery, con)
                 cmdPerf.Parameters.AddWithValue("@ProcessorName", selectedProcessor)
 
@@ -138,5 +137,11 @@ Public Class AdminDashboard
         txtPrice.Clear()
         txtCamera.Clear()
         txtSearch.Clear()
+    End Sub
+
+    Private Sub Feed_Click(sender As Object, e As EventArgs) Handles Feed.Click
+        Dim feed As New feed()
+        feed.Show()
+        Me.Close()
     End Sub
 End Class

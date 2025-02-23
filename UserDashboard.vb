@@ -203,9 +203,9 @@ Public Class UserDashboard
             If cboBattery.SelectedIndex > 0 Then
                 Select Case cboBattery.SelectedItem.ToString()
                     Case "Medium Capacity"
-                        query &= " AND d.Battery BETWEEN 3000 AND 5000"
+                        query &= " AND TRY_CAST(REPLACE(d.Battery, 'mAh', '') AS INT) BETWEEN 3000 AND 5000"
                     Case "High Capacity"
-                        query &= " AND d.Battery > 5000"
+                        query &= " AND TRY_CAST(REPLACE(d.Battery, 'mAh', '') AS INT) > 5000"
                 End Select
             End If
 

@@ -37,7 +37,7 @@ Public Class loginform
                     MessageBox.Show("Invalid email or password!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End If
 
-                reader.Close() ' ✅ Close the reader after use
+                reader.Close() '  Close the reader after use
 
             End Using
         End Using

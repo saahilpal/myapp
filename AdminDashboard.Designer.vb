@@ -55,6 +55,8 @@ Partial Class AdminDashboard
         Dim CustomizableEdges28 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges29 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges30 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges31 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges32 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         txtSearch = New Guna.UI2.WinForms.Guna2TextBox()
         txtName = New Guna.UI2.WinForms.Guna2TextBox()
         txtBrand = New Guna.UI2.WinForms.Guna2TextBox()
@@ -81,6 +83,7 @@ Partial Class AdminDashboard
         btnSearch = New Guna.UI2.WinForms.Guna2Button()
         btnClear = New Guna.UI2.WinForms.Guna2Button()
         performancecmb = New Guna.UI2.WinForms.Guna2ComboBox()
+        Feed = New Guna.UI2.WinForms.Guna2Button()
         Guna2Panel1.SuspendLayout()
         CType(dgDevices, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -394,7 +397,7 @@ Partial Class AdminDashboard
         btnDelete.FillColor = Color.OrangeRed
         btnDelete.Font = New Font("Segoe UI", 9F)
         btnDelete.ForeColor = Color.White
-        btnDelete.Location = New Point(791, 638)
+        btnDelete.Location = New Point(727, 638)
         btnDelete.Name = "btnDelete"
         btnDelete.ShadowDecoration.CustomizableEdges = CustomizableEdges18
         btnDelete.Size = New Size(280, 76)
@@ -414,7 +417,7 @@ Partial Class AdminDashboard
         btnLogout.FillColor = Color.OrangeRed
         btnLogout.Font = New Font("Segoe UI", 9F)
         btnLogout.ForeColor = Color.White
-        btnLogout.Location = New Point(1209, 638)
+        btnLogout.Location = New Point(1117, 638)
         btnLogout.Name = "btnLogout"
         btnLogout.ShadowDecoration.CustomizableEdges = CustomizableEdges20
         btnLogout.Size = New Size(280, 76)
@@ -544,12 +547,32 @@ Partial Class AdminDashboard
         performancecmb.Size = New Size(361, 56)
         performancecmb.TabIndex = 25
         ' 
+        ' Feed
+        ' 
+        Feed.BackColor = Color.Transparent
+        Feed.BorderRadius = 30
+        Feed.CustomizableEdges = CustomizableEdges31
+        Feed.DisabledState.BorderColor = Color.DarkGray
+        Feed.DisabledState.CustomBorderColor = Color.DarkGray
+        Feed.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        Feed.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        Feed.Font = New Font("Segoe UI", 9F)
+        Feed.ForeColor = Color.White
+        Feed.Location = New Point(1538, 146)
+        Feed.Name = "Feed"
+        Feed.ShadowDecoration.CustomizableEdges = CustomizableEdges32
+        Feed.Size = New Size(280, 76)
+        Feed.TabIndex = 26
+        Feed.Text = "Feedback"
+        Feed.UseTransparentBackground = True
+        ' 
         ' AdminDashboard
         ' 
         AutoScaleDimensions = New SizeF(13F, 32F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = SystemColors.GradientActiveCaption
         ClientSize = New Size(1930, 1054)
+        Controls.Add(Feed)
         Controls.Add(performancecmb)
         Controls.Add(btnClear)
         Controls.Add(btnSearch)
@@ -610,4 +633,5 @@ Partial Class AdminDashboard
     Friend WithEvents btnSearch As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnClear As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents performancecmb As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents Feed As Guna.UI2.WinForms.Guna2Button
 End Class
