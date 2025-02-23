@@ -1,16 +1,13 @@
 ﻿Imports Microsoft.Data.SqlClient
+Imports Windows.Win32.System
 
 Public Class UserDashboard
     Dim connectionString As String = "Data Source=DESKTOP-J1R63G7\SQLEXPRESS;Initial Catalog=test;Integrated Security=True;Trust Server Certificate=True"
     Private LoggedInUserID As Integer
-
-    ' Constructor to receive userID
     Public Sub New(userID As Integer)
         InitializeComponent()
         LoggedInUserID = userID
-
     End Sub
-
     ' Load User Dashboard Data
     Private Sub UserDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         pnlFilters.Visible = False ' Hide filter panel initially
@@ -22,37 +19,32 @@ Public Class UserDashboard
     Private Sub LoadFilters()
         Using con As New SqlConnection(connectionString)
             con.Open()
-
-            ' Load Brand Filter
             Dim brandQuery As String = "SELECT DISTINCT Brand FROM Devices"
             Dim brandCmd As New SqlCommand(brandQuery, con)
             Dim brandReader As SqlDataReader = brandCmd.ExecuteReader()
             cboBrand.Items.Clear()
-            cboBrand.Items.Add("All") ' Default option
+            cboBrand.Items.Add("All")
             While brandReader.Read()
-                cboBrand.Items.Add(brandReader("Brand").ToString().Trim()) ' Trim spaces
+                cboBrand.Items.Add(brandReader("Brand").ToString().Trim())
             End While
             brandReader.Close()
 
-            ' Load Performance Filter
             cboPerformance.Items.Clear()
             cboPerformance.Items.Add("All")
-            cboPerformance.Items.Add("Flagship") ' Rank 1-6
-            cboPerformance.Items.Add("Fast") ' Rank 7-14
-            cboPerformance.Items.Add("Average") ' Rank 15 and below
+            cboPerformance.Items.Add("Flagship")
+            cboPerformance.Items.Add("Fast")
+            cboPerformance.Items.Add("Average")
 
-            ' Load Price Filter (INR)
             cboPrice.Items.Clear()
             cboPrice.Items.Add("All")
-            cboPrice.Items.Add("Budget") ' (0-25000) rs
-            cboPrice.Items.Add("Mid-Range") ' (25001-49999) rs
-            cboPrice.Items.Add("Premium") ' (50000+) rs
+            cboPrice.Items.Add("Budget")
+            cboPrice.Items.Add("Mid-Range")
+            cboPrice.Items.Add("Premium")
 
-            ' Load Battery Filter
             cboBattery.Items.Clear()
             cboBattery.Items.Add("All")
-            cboBattery.Items.Add("Medium Capacity") ' (3000-5000 mAh)
-            cboBattery.Items.Add("High Capacity") ' (>5000 mAh)
+            cboBattery.Items.Add("Medium Capacity")
+            cboBattery.Items.Add("High Capacity")
         End Using
     End Sub
 
@@ -62,38 +54,40 @@ Public Class UserDashboard
             Return
         End If
         LoadDevices(txtSearch.Text.Trim())
-
-        dgDevices.Visible = True ' Show device list
+        dgDevices.Visible = True
     End Sub
 
     ' Load Devices Based on Search & Filters
     Private Sub LoadDevices(searchText As String)
         Using con As New SqlConnection(connectionString)
             con.Open()
-
-            Dim query As String = "SELECT d.DeviceID, d.Name, d.Brand, d.Battery, d.Camera, p.ProcessorName, d.RAM, d.Price 
-                               FROM Devices d 
-                               INNER JOIN Performance p ON d.PerformanceID = p.PerformanceID 
-                               WHERE d.Name LIKE @Search OR d.Brand LIKE @Search"
+            Dim query As String = "SELECT d.DeviceID, d.Name, d.Brand, d.Battery, d.Camera, p.ProcessorName, d.RAM, d.Price FROM Devices d " &
+               "INNER JOIN Performance p ON d.PerformanceID = p.PerformanceID " &
+                  "WHERE d.Name LIKE @Search OR d.Brand LIKE @Search"
 
             Dim adapter As New SqlDataAdapter(query, con)
             adapter.SelectCommand.Parameters.AddWithValue("@Search", "%" & searchText & "%")
-
             Dim table As New DataTable()
             adapter.Fill(table)
 
-            ' ✅ Debugging: Show DeviceID values
-            If table.Rows.Count > 0 Then
-                For Each row As DataRow In table.Rows
-                    Console.WriteLine("Loaded DeviceID: " & row("DeviceID"))
-                Next
-            Else
-                MessageBox.Show("No devices found.", "Search", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            End If
-
-            dgDevices.DataSource = Nothing  ' Clear before binding
+            ' Clear and rebind data to ensure fresh display
+            dgDevices.DataSource = Nothing
             dgDevices.DataSource = table
-            dgDevices.Refresh()
+
+            ' Explicitly set column names to match the query
+            dgDevices.Columns(0).Name = "DeviceID"
+            dgDevices.Columns(1).Name = "Name"
+            dgDevices.Columns(2).Name = "Brand"
+            dgDevices.Columns(3).Name = "Battery"
+            dgDevices.Columns(4).Name = "Camera"
+            dgDevices.Columns(5).Name = "ProcessorName"
+            dgDevices.Columns(6).Name = "RAM"
+            dgDevices.Columns(7).Name = "Price"
+
+            ' Debug: Show the first row’s DeviceID and Name
+            If table.Rows.Count = 0 Then
+                MessageBox.Show("No devices found for search.")
+            End If
         End Using
     End Sub
 
@@ -103,27 +97,39 @@ Public Class UserDashboard
     End Sub
 
     Private Sub dgDevices_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgDevices.CellContentClick
-
         If e.ColumnIndex = dgDevices.Columns("Wishlist").Index AndAlso e.RowIndex >= 0 Then
-            ' ✅ Get the correct DeviceID from the selected row
-            Dim selectedDeviceID As Integer = Convert.ToInt32(dgDevices.Rows(e.RowIndex).Cells("DeviceID").Value)
+            Dim selectedDeviceID As Integer
+            Try
+                selectedDeviceID = Convert.ToInt32(dgDevices.Rows(e.RowIndex).Cells("DeviceID").Value)
+            Catch ex As Exception
+                MessageBox.Show("Invalid DeviceID detected: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return
+            End Try
 
-            ' ✅ Debugging: Show DeviceID before inserting
-            MessageBox.Show("Selected Device ID: " & selectedDeviceID)
-
+            Dim selectedDeviceName As String = dgDevices.Rows(e.RowIndex).Cells("Name").Value.ToString()
+            ' Validate DeviceID exists in Devices table
             Using con As New SqlConnection(connectionString)
                 con.Open()
+                Dim checkQuery As String = "SELECT COUNT(*) FROM Devices WHERE DeviceID = @DeviceID"
+                Using checkCmd As New SqlCommand(checkQuery, con)
+                    checkCmd.Parameters.AddWithValue("@DeviceID", selectedDeviceID)
+                    Dim count As Integer = Convert.ToInt32(checkCmd.ExecuteScalar())
+                    If count = 0 Then
+                        MessageBox.Show("DeviceID " & selectedDeviceID & " does not exist in Devices table!", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Return
+                    End If
+                End Using
+
                 Dim query As String = "INSERT INTO Wishlist (UserID, DeviceID) VALUES (@UserID, @DeviceID)"
                 Dim cmd As New SqlCommand(query, con)
                 cmd.Parameters.AddWithValue("@UserID", LoggedInUserID)
                 cmd.Parameters.AddWithValue("@DeviceID", selectedDeviceID)
 
-
                 Try
                     cmd.ExecuteNonQuery()
-                    MessageBox.Show("Device added to Wishlist!", "Wishlist", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    MessageBox.Show(selectedDeviceName & " added to Wishlist!", "Wishlist", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Catch ex As SqlException
-                    If ex.Number = 2627 Then ' Unique constraint violation
+                    If ex.Number = 2627 Then
                         MessageBox.Show("This device is already in your Wishlist!", "Wishlist Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                     Else
                         MessageBox.Show("Error: " & ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -163,19 +169,15 @@ Public Class UserDashboard
     Private Sub btnApplyFilters_Click(sender As Object, e As EventArgs) Handles btnApplyFilters.Click
         Using con As New SqlConnection(connectionString)
             con.Open()
-
-            Dim query As String = "SELECT d.Name, d.Brand, d.Battery, d.Camera, p.ProcessorName, d.RAM, d.Price FROM Devices d " &
+            Dim query As String = "SELECT d.DeviceID, d.Name, d.Brand, d.Battery, d.Camera, p.ProcessorName, d.RAM, d.Price FROM Devices d " &
                                   "INNER JOIN Performance p ON d.PerformanceID = p.PerformanceID WHERE 1=1"
-
             Dim parameters As New List(Of SqlParameter)
 
-            ' ✅ Apply Brand Filter if Selected
             If cboBrand.SelectedIndex > 0 Then
                 query &= " AND d.Brand = @Brand"
                 parameters.Add(New SqlParameter("@Brand", cboBrand.SelectedItem.ToString()))
             End If
 
-            ' ✅ Apply Performance Rank Filter
             If cboPerformance.SelectedIndex > 0 Then
                 Select Case cboPerformance.SelectedItem.ToString()
                     Case "Flagship"
@@ -187,7 +189,6 @@ Public Class UserDashboard
                 End Select
             End If
 
-            ' ✅ Apply Price Filter
             If cboPrice.SelectedIndex > 0 Then
                 Select Case cboPrice.SelectedItem.ToString()
                     Case "Budget"
@@ -199,7 +200,6 @@ Public Class UserDashboard
                 End Select
             End If
 
-            ' ✅ Apply Battery Filter
             If cboBattery.SelectedIndex > 0 Then
                 Select Case cboBattery.SelectedItem.ToString()
                     Case "Medium Capacity"
@@ -209,16 +209,13 @@ Public Class UserDashboard
                 End Select
             End If
 
-            ' Execute the query
             Dim cmd As New SqlCommand(query, con)
             cmd.Parameters.AddRange(parameters.ToArray())
-
             Dim adapter As New SqlDataAdapter(cmd)
             Dim table As New DataTable()
             adapter.Fill(table)
             dgDevices.DataSource = table
 
-            ' Show DataGridView only if results exist
             If table.Rows.Count > 0 Then
                 dgDevices.Visible = True
             Else
@@ -228,16 +225,11 @@ Public Class UserDashboard
     End Sub
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
-        ' Clear all ComboBoxes
         cboBrand.SelectedIndex = -1
         cboPerformance.SelectedIndex = -1
         cboPrice.SelectedIndex = -1
         cboBattery.SelectedIndex = -1
-
-        ' Clear the search box
         txtSearch.Text = ""
-
-        ' Hide DataGridView
         dgDevices.DataSource = Nothing
         dgDevices.Visible = False
     End Sub

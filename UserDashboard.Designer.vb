@@ -87,7 +87,6 @@ Partial Class UserDashboard
         btnPopular = New Guna.UI2.WinForms.Guna2Button()
         btnClear = New Guna.UI2.WinForms.Guna2Button()
         WishList = New DataGridViewButtonColumn()
-        DeviceId = New DataGridViewTextBoxColumn()
         Guna2CustomGradientPanel1.SuspendLayout()
         pnlFilters.SuspendLayout()
         deviceListPanel.SuspendLayout()
@@ -364,7 +363,7 @@ Partial Class UserDashboard
         dgDevices.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         dgDevices.ColumnHeadersHeight = 34
         dgDevices.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
-        dgDevices.Columns.AddRange(New DataGridViewColumn() {WishList, DeviceId})
+        dgDevices.Columns.AddRange(New DataGridViewColumn() {WishList})
         DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = Color.White
         DataGridViewCellStyle3.Font = New Font("Segoe UI", 9F)
@@ -533,13 +532,6 @@ Partial Class UserDashboard
         WishList.Name = "WishList"
         WishList.UseColumnTextForButtonValue = True
         ' 
-        ' DeviceId
-        ' 
-        DeviceId.HeaderText = "DeviceId"
-        DeviceId.MinimumWidth = 10
-        DeviceId.Name = "DeviceId"
-        DeviceId.ReadOnly = True
-        ' 
         ' UserDashboard
         ' 
         AutoScaleDimensions = New SizeF(13F, 32F)
@@ -593,5 +585,4 @@ Partial Class UserDashboard
     Friend WithEvents Guna2HtmlLabel6 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents btnClear As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents WishList As DataGridViewButtonColumn
-    Friend WithEvents DeviceId As DataGridViewTextBoxColumn
 End Class
