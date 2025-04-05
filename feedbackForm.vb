@@ -16,7 +16,7 @@ Public Class feedbackForm
         End If
 
         ' Get user input
-        Dim rating As Integer = CInt(ratingStars.Value)
+        Dim rating As Decimal = ratingStars.Value
         Dim comment As String = txtFeedback.Text.Trim()
 
         ' Assuming you have a global variable for logged-in user ID
