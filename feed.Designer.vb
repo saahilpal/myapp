@@ -32,6 +32,7 @@ Partial Class feed
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Guna2GradientPanel1 = New Guna.UI2.WinForms.Guna2GradientPanel()
         Refreshbtn = New Guna.UI2.WinForms.Guna2Button()
         Backbtn = New Guna.UI2.WinForms.Guna2Button()
@@ -87,7 +88,8 @@ Partial Class feed
         ' 
         DataGridViewCellStyle1.BackColor = Color.White
         dgfeed.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        dgfeed.BackgroundColor = Color.LightSkyBlue
+        dgfeed.BackgroundColor = Color.MintCream
+        dgfeed.BorderStyle = BorderStyle.Fixed3D
         DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = Color.LightSkyBlue
         DataGridViewCellStyle2.Font = New Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
@@ -106,10 +108,12 @@ Partial Class feed
         DataGridViewCellStyle3.SelectionForeColor = Color.White
         DataGridViewCellStyle3.WrapMode = DataGridViewTriState.True
         dgfeed.DefaultCellStyle = DataGridViewCellStyle3
+        dgfeed.EnableHeadersVisualStyles = True
         dgfeed.GridColor = Color.LightSkyBlue
         dgfeed.Location = New Point(24, 375)
         dgfeed.Name = "dgfeed"
         dgfeed.ReadOnly = True
+        dgfeed.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single
         DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle4.BackColor = Color.LightSkyBlue
         DataGridViewCellStyle4.Font = New Font("Segoe UI", 10.125F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
@@ -118,7 +122,11 @@ Partial Class feed
         DataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText
         DataGridViewCellStyle4.WrapMode = DataGridViewTriState.True
         dgfeed.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
+        dgfeed.RowHeadersVisible = False
         dgfeed.RowHeadersWidth = 82
+        DataGridViewCellStyle5.BackColor = Color.LightSkyBlue
+        DataGridViewCellStyle5.Font = New Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        dgfeed.RowsDefaultCellStyle = DataGridViewCellStyle5
         dgfeed.RowTemplate.DefaultCellStyle.BackColor = Color.Azure
         dgfeed.RowTemplate.DefaultCellStyle.SelectionBackColor = Color.DodgerBlue
         dgfeed.Size = New Size(1773, 481)
@@ -128,7 +136,7 @@ Partial Class feed
         dgfeed.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty
         dgfeed.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty
         dgfeed.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty
-        dgfeed.ThemeStyle.BackColor = Color.LightSkyBlue
+        dgfeed.ThemeStyle.BackColor = Color.MintCream
         dgfeed.ThemeStyle.GridColor = Color.LightSkyBlue
         dgfeed.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(CByte(100), CByte(88), CByte(255))
         dgfeed.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None

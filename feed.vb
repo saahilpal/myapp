@@ -18,14 +18,38 @@ Public Class feed
                 Dim da As New SqlDataAdapter(query, con)
                 Dim dt As New DataTable()
                 da.Fill(dt)
-                With dgfeed
-                    .ColumnHeadersVisible = True
-                    .ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
-                    .ColumnHeadersHeight = 30 ' or whatever height you like
-                End With
 
                 dgfeed.AutoGenerateColumns = True
                 dgfeed.DataSource = dt
+
+                ' Modern theme styling
+                With dgfeed
+                    ' HEADER STYLING
+                    .EnableHeadersVisualStyles = False
+                    .ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(100, 149, 237) ' CornflowerBlue
+                    .ColumnHeadersDefaultCellStyle.ForeColor = Color.White
+                    .ColumnHeadersDefaultCellStyle.Font = New Font("Segoe UI", 10, FontStyle.Bold)
+                    .ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft
+                    .ColumnHeadersHeight = 35
+
+                    ' CELL STYLING
+                    .DefaultCellStyle.BackColor = Color.FromArgb(240, 248, 255) ' AliceBlue
+                    .DefaultCellStyle.ForeColor = Color.FromArgb(40, 40, 40)
+                    .DefaultCellStyle.Font = New Font("Segoe UI", 9)
+                    .DefaultCellStyle.SelectionBackColor = Color.FromArgb(173, 216, 230) ' LightBlue
+                    .DefaultCellStyle.SelectionForeColor = Color.Black
+
+                    .AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(225, 240, 255)
+
+                    .RowHeadersVisible = False
+                    .BorderStyle = BorderStyle.None
+                    .CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal
+                    .ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single
+
+                    .GridColor = Color.LightGray
+                End With
+
+
             End Using
         Catch ex As Exception
             MessageBox.Show("Error loading feedback: " & ex.Message)

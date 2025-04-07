@@ -79,6 +79,7 @@ Partial Class UserDashboard
         btnFilter = New Guna.UI2.WinForms.Guna2Button()
         deviceListPanel = New Guna.UI2.WinForms.Guna2Panel()
         dgDevices = New Guna.UI2.WinForms.Guna2DataGridView()
+        WishList = New DataGridViewButtonColumn()
         Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         btnLogout = New Guna.UI2.WinForms.Guna2Button()
         btnFeedback = New Guna.UI2.WinForms.Guna2Button()
@@ -86,7 +87,6 @@ Partial Class UserDashboard
         btnWishlist = New Guna.UI2.WinForms.Guna2Button()
         btnPopular = New Guna.UI2.WinForms.Guna2Button()
         btnClear = New Guna.UI2.WinForms.Guna2Button()
-        WishList = New DataGridViewButtonColumn()
         Guna2CustomGradientPanel1.SuspendLayout()
         pnlFilters.SuspendLayout()
         deviceListPanel.SuspendLayout()
@@ -401,6 +401,13 @@ Partial Class UserDashboard
         dgDevices.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
         dgDevices.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
         ' 
+        ' WishList
+        ' 
+        WishList.HeaderText = "Wishlist"
+        WishList.MinimumWidth = 10
+        WishList.Name = "WishList"
+        WishList.UseColumnTextForButtonValue = True
+        ' 
         ' Guna2Panel1
         ' 
         Guna2Panel1.Controls.Add(btnLogout)
@@ -524,13 +531,6 @@ Partial Class UserDashboard
         btnClear.TabIndex = 19
         btnClear.Text = "Clear"
         btnClear.UseTransparentBackground = True
-        ' 
-        ' WishList
-        ' 
-        WishList.HeaderText = "Wishlist"
-        WishList.MinimumWidth = 10
-        WishList.Name = "WishList"
-        WishList.UseColumnTextForButtonValue = True
         ' 
         ' UserDashboard
         ' 
