@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class compareForm
+Partial Class compareform
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,228 +22,161 @@ Partial Class compareForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim CustomizableEdges15 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges16 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges17 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges18 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges19 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges20 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges21 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges22 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim CustomizableEdges23 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges24 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges25 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges26 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges27 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges28 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim CustomizableEdges29 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges30 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges31 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges32 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Guna2GradientPanel1 = New Guna.UI2.WinForms.Guna2GradientPanel()
         Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Guna2HtmlLabel2 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Guna2HtmlLabel3 = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        cmbBrand1 = New Guna.UI2.WinForms.Guna2ComboBox()
-        cmbBrand2 = New Guna.UI2.WinForms.Guna2ComboBox()
-        cmbDevice1 = New Guna.UI2.WinForms.Guna2ComboBox()
-        cmbDevice2 = New Guna.UI2.WinForms.Guna2ComboBox()
         Guna2HtmlLabel4 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Guna2HtmlLabel5 = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Guna2HtmlLabel6 = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Guna2HtmlLabel7 = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Guna2HtmlLabel8 = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        cbBrand1 = New Guna.UI2.WinForms.Guna2ComboBox()
+        cbDevice1 = New Guna.UI2.WinForms.Guna2ComboBox()
+        cbBrand2 = New Guna.UI2.WinForms.Guna2ComboBox()
+        cbDevice2 = New Guna.UI2.WinForms.Guna2ComboBox()
+        dgvCompare = New Guna.UI2.WinForms.Guna2DataGridView()
         btnCompare = New Guna.UI2.WinForms.Guna2Button()
-        dgCompare = New Guna.UI2.WinForms.Guna2DataGridView()
         btnClear = New Guna.UI2.WinForms.Guna2Button()
         btnBack = New Guna.UI2.WinForms.Guna2Button()
-        Guna2GradientPanel1.SuspendLayout()
-        CType(dgCompare, ComponentModel.ISupportInitialize).BeginInit()
+        CType(dgvCompare, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
-        ' 
-        ' Guna2GradientPanel1
-        ' 
-        Guna2GradientPanel1.Controls.Add(Guna2HtmlLabel1)
-        Guna2GradientPanel1.CustomizableEdges = CustomizableEdges17
-        Guna2GradientPanel1.Location = New Point(0, -7)
-        Guna2GradientPanel1.Name = "Guna2GradientPanel1"
-        Guna2GradientPanel1.ShadowDecoration.CustomizableEdges = CustomizableEdges18
-        Guna2GradientPanel1.Size = New Size(2262, 201)
-        Guna2GradientPanel1.TabIndex = 0
         ' 
         ' Guna2HtmlLabel1
         ' 
         Guna2HtmlLabel1.BackColor = Color.Transparent
-        Guna2HtmlLabel1.Font = New Font("Segoe UI", 25.875F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Guna2HtmlLabel1.Location = New Point(848, 52)
+        Guna2HtmlLabel1.Font = New Font("Segoe UI Semibold", 24F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Guna2HtmlLabel1.Location = New Point(908, 33)
         Guna2HtmlLabel1.Name = "Guna2HtmlLabel1"
-        Guna2HtmlLabel1.Size = New Size(559, 94)
+        Guna2HtmlLabel1.Size = New Size(268, 88)
         Guna2HtmlLabel1.TabIndex = 0
-        Guna2HtmlLabel1.Text = "Compare Devices"
+        Guna2HtmlLabel1.Text = "Compare"
         ' 
         ' Guna2HtmlLabel2
         ' 
         Guna2HtmlLabel2.BackColor = Color.Transparent
-        Guna2HtmlLabel2.Font = New Font("Segoe UI", 16.125F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Guna2HtmlLabel2.Location = New Point(81, 271)
+        Guna2HtmlLabel2.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Guna2HtmlLabel2.Location = New Point(131, 229)
         Guna2HtmlLabel2.Name = "Guna2HtmlLabel2"
-        Guna2HtmlLabel2.Size = New Size(174, 61)
+        Guna2HtmlLabel2.Size = New Size(93, 47)
         Guna2HtmlLabel2.TabIndex = 1
-        Guna2HtmlLabel2.Text = "Device 1"
+        Guna2HtmlLabel2.Text = "Brand"
         ' 
         ' Guna2HtmlLabel3
         ' 
         Guna2HtmlLabel3.BackColor = Color.Transparent
-        Guna2HtmlLabel3.Font = New Font("Segoe UI", 16.125F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Guna2HtmlLabel3.Location = New Point(1267, 271)
+        Guna2HtmlLabel3.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Guna2HtmlLabel3.Location = New Point(1129, 229)
         Guna2HtmlLabel3.Name = "Guna2HtmlLabel3"
-        Guna2HtmlLabel3.Size = New Size(174, 61)
+        Guna2HtmlLabel3.Size = New Size(93, 47)
         Guna2HtmlLabel3.TabIndex = 2
-        Guna2HtmlLabel3.Text = "Device 2"
-        ' 
-        ' cmbBrand1
-        ' 
-        cmbBrand1.BackColor = Color.Transparent
-        cmbBrand1.BorderRadius = 25
-        cmbBrand1.CustomizableEdges = CustomizableEdges19
-        cmbBrand1.DrawMode = DrawMode.OwnerDrawFixed
-        cmbBrand1.DropDownStyle = ComboBoxStyle.DropDownList
-        cmbBrand1.FocusedColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        cmbBrand1.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        cmbBrand1.Font = New Font("Segoe UI", 16.125F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        cmbBrand1.ForeColor = Color.FromArgb(CByte(68), CByte(88), CByte(112))
-        cmbBrand1.ItemHeight = 50
-        cmbBrand1.Location = New Point(324, 276)
-        cmbBrand1.Name = "cmbBrand1"
-        cmbBrand1.ShadowDecoration.CustomizableEdges = CustomizableEdges20
-        cmbBrand1.Size = New Size(306, 56)
-        cmbBrand1.TabIndex = 3
-        ' 
-        ' cmbBrand2
-        ' 
-        cmbBrand2.BackColor = Color.Transparent
-        cmbBrand2.BorderRadius = 25
-        cmbBrand2.CustomizableEdges = CustomizableEdges21
-        cmbBrand2.DrawMode = DrawMode.OwnerDrawFixed
-        cmbBrand2.DropDownStyle = ComboBoxStyle.DropDownList
-        cmbBrand2.FocusedColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        cmbBrand2.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        cmbBrand2.Font = New Font("Segoe UI", 16.125F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        cmbBrand2.ForeColor = Color.FromArgb(CByte(68), CByte(88), CByte(112))
-        cmbBrand2.ItemHeight = 50
-        cmbBrand2.Location = New Point(1507, 271)
-        cmbBrand2.Name = "cmbBrand2"
-        cmbBrand2.ShadowDecoration.CustomizableEdges = CustomizableEdges22
-        cmbBrand2.Size = New Size(306, 56)
-        cmbBrand2.TabIndex = 4
-        ' 
-        ' cmbDevice1
-        ' 
-        cmbDevice1.BackColor = Color.Transparent
-        cmbDevice1.BorderRadius = 25
-        cmbDevice1.CustomizableEdges = CustomizableEdges23
-        cmbDevice1.DrawMode = DrawMode.OwnerDrawFixed
-        cmbDevice1.DropDownStyle = ComboBoxStyle.DropDownList
-        cmbDevice1.FocusedColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        cmbDevice1.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        cmbDevice1.Font = New Font("Segoe UI", 16.125F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        cmbDevice1.ForeColor = Color.FromArgb(CByte(68), CByte(88), CByte(112))
-        cmbDevice1.ItemHeight = 50
-        cmbDevice1.Location = New Point(739, 276)
-        cmbDevice1.Name = "cmbDevice1"
-        cmbDevice1.ShadowDecoration.CustomizableEdges = CustomizableEdges24
-        cmbDevice1.Size = New Size(306, 56)
-        cmbDevice1.TabIndex = 5
-        ' 
-        ' cmbDevice2
-        ' 
-        cmbDevice2.BackColor = Color.Transparent
-        cmbDevice2.BorderRadius = 25
-        cmbDevice2.CustomizableEdges = CustomizableEdges25
-        cmbDevice2.DrawMode = DrawMode.OwnerDrawFixed
-        cmbDevice2.DropDownStyle = ComboBoxStyle.DropDownList
-        cmbDevice2.FocusedColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        cmbDevice2.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
-        cmbDevice2.Font = New Font("Segoe UI", 16.125F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        cmbDevice2.ForeColor = Color.FromArgb(CByte(68), CByte(88), CByte(112))
-        cmbDevice2.ItemHeight = 50
-        cmbDevice2.Location = New Point(1896, 271)
-        cmbDevice2.Name = "cmbDevice2"
-        cmbDevice2.ShadowDecoration.CustomizableEdges = CustomizableEdges26
-        cmbDevice2.Size = New Size(306, 56)
-        cmbDevice2.TabIndex = 6
+        Guna2HtmlLabel3.Text = "Brand"
         ' 
         ' Guna2HtmlLabel4
         ' 
         Guna2HtmlLabel4.BackColor = Color.Transparent
-        Guna2HtmlLabel4.Location = New Point(0, 0)
+        Guna2HtmlLabel4.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Guna2HtmlLabel4.Location = New Point(595, 229)
         Guna2HtmlLabel4.Name = "Guna2HtmlLabel4"
-        Guna2HtmlLabel4.Size = New Size(193, 34)
-        Guna2HtmlLabel4.TabIndex = 7
-        Guna2HtmlLabel4.Text = "Guna2HtmlLabel4"
+        Guna2HtmlLabel4.Size = New Size(102, 47)
+        Guna2HtmlLabel4.TabIndex = 3
+        Guna2HtmlLabel4.Text = "Device"
         ' 
         ' Guna2HtmlLabel5
         ' 
         Guna2HtmlLabel5.BackColor = Color.Transparent
-        Guna2HtmlLabel5.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Guna2HtmlLabel5.Location = New Point(386, 218)
+        Guna2HtmlLabel5.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Guna2HtmlLabel5.Location = New Point(1583, 229)
         Guna2HtmlLabel5.Name = "Guna2HtmlLabel5"
-        Guna2HtmlLabel5.Size = New Size(179, 47)
-        Guna2HtmlLabel5.TabIndex = 8
-        Guna2HtmlLabel5.Text = "Select Brand"
+        Guna2HtmlLabel5.Size = New Size(102, 47)
+        Guna2HtmlLabel5.TabIndex = 4
+        Guna2HtmlLabel5.Text = "Device"
         ' 
-        ' Guna2HtmlLabel6
+        ' cbBrand1
         ' 
-        Guna2HtmlLabel6.BackColor = Color.Transparent
-        Guna2HtmlLabel6.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Guna2HtmlLabel6.Location = New Point(1574, 218)
-        Guna2HtmlLabel6.Name = "Guna2HtmlLabel6"
-        Guna2HtmlLabel6.Size = New Size(179, 47)
-        Guna2HtmlLabel6.TabIndex = 9
-        Guna2HtmlLabel6.Text = "Select Brand"
+        cbBrand1.BackColor = Color.Transparent
+        cbBrand1.CustomizableEdges = CustomizableEdges15
+        cbBrand1.DrawMode = DrawMode.OwnerDrawFixed
+        cbBrand1.DropDownStyle = ComboBoxStyle.DropDownList
+        cbBrand1.FocusedColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        cbBrand1.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        cbBrand1.Font = New Font("Segoe UI", 10F)
+        cbBrand1.ForeColor = Color.FromArgb(CByte(68), CByte(88), CByte(112))
+        cbBrand1.ItemHeight = 30
+        cbBrand1.Location = New Point(252, 240)
+        cbBrand1.Name = "cbBrand1"
+        cbBrand1.ShadowDecoration.CustomizableEdges = CustomizableEdges16
+        cbBrand1.Size = New Size(280, 36)
+        cbBrand1.TabIndex = 5
         ' 
-        ' Guna2HtmlLabel7
+        ' cbDevice1
         ' 
-        Guna2HtmlLabel7.BackColor = Color.Transparent
-        Guna2HtmlLabel7.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Guna2HtmlLabel7.Location = New Point(806, 218)
-        Guna2HtmlLabel7.Name = "Guna2HtmlLabel7"
-        Guna2HtmlLabel7.Size = New Size(191, 47)
-        Guna2HtmlLabel7.TabIndex = 10
-        Guna2HtmlLabel7.Text = "Select Device"
+        cbDevice1.BackColor = Color.Transparent
+        cbDevice1.CustomizableEdges = CustomizableEdges17
+        cbDevice1.DrawMode = DrawMode.OwnerDrawFixed
+        cbDevice1.DropDownStyle = ComboBoxStyle.DropDownList
+        cbDevice1.FocusedColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        cbDevice1.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        cbDevice1.Font = New Font("Segoe UI", 10F)
+        cbDevice1.ForeColor = Color.FromArgb(CByte(68), CByte(88), CByte(112))
+        cbDevice1.ItemHeight = 30
+        cbDevice1.Location = New Point(717, 240)
+        cbDevice1.Name = "cbDevice1"
+        cbDevice1.ShadowDecoration.CustomizableEdges = CustomizableEdges18
+        cbDevice1.Size = New Size(280, 36)
+        cbDevice1.TabIndex = 6
         ' 
-        ' Guna2HtmlLabel8
+        ' cbBrand2
         ' 
-        Guna2HtmlLabel8.BackColor = Color.Transparent
-        Guna2HtmlLabel8.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
-        Guna2HtmlLabel8.Location = New Point(1966, 218)
-        Guna2HtmlLabel8.Name = "Guna2HtmlLabel8"
-        Guna2HtmlLabel8.Size = New Size(191, 47)
-        Guna2HtmlLabel8.TabIndex = 11
-        Guna2HtmlLabel8.Text = "Select Device"
+        cbBrand2.BackColor = Color.Transparent
+        cbBrand2.CustomizableEdges = CustomizableEdges19
+        cbBrand2.DrawMode = DrawMode.OwnerDrawFixed
+        cbBrand2.DropDownStyle = ComboBoxStyle.DropDownList
+        cbBrand2.FocusedColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        cbBrand2.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        cbBrand2.Font = New Font("Segoe UI", 10F)
+        cbBrand2.ForeColor = Color.FromArgb(CByte(68), CByte(88), CByte(112))
+        cbBrand2.ItemHeight = 30
+        cbBrand2.Location = New Point(1266, 240)
+        cbBrand2.Name = "cbBrand2"
+        cbBrand2.ShadowDecoration.CustomizableEdges = CustomizableEdges20
+        cbBrand2.Size = New Size(280, 36)
+        cbBrand2.TabIndex = 7
         ' 
-        ' btnCompare
+        ' cbDevice2
         ' 
-        btnCompare.BorderRadius = 25
-        btnCompare.CustomizableEdges = CustomizableEdges27
-        btnCompare.DisabledState.BorderColor = Color.DarkGray
-        btnCompare.DisabledState.CustomBorderColor = Color.DarkGray
-        btnCompare.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
-        btnCompare.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
-        btnCompare.Font = New Font("Segoe UI", 16.125F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        btnCompare.ForeColor = Color.White
-        btnCompare.Location = New Point(965, 444)
-        btnCompare.Name = "btnCompare"
-        btnCompare.ShadowDecoration.CustomizableEdges = CustomizableEdges28
-        btnCompare.Size = New Size(335, 84)
-        btnCompare.TabIndex = 12
-        btnCompare.Text = "Compare"
+        cbDevice2.BackColor = Color.Transparent
+        cbDevice2.CustomizableEdges = CustomizableEdges21
+        cbDevice2.DrawMode = DrawMode.OwnerDrawFixed
+        cbDevice2.DropDownStyle = ComboBoxStyle.DropDownList
+        cbDevice2.FocusedColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        cbDevice2.FocusedState.BorderColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
+        cbDevice2.Font = New Font("Segoe UI", 10F)
+        cbDevice2.ForeColor = Color.FromArgb(CByte(68), CByte(88), CByte(112))
+        cbDevice2.ItemHeight = 30
+        cbDevice2.Location = New Point(1710, 240)
+        cbDevice2.Name = "cbDevice2"
+        cbDevice2.ShadowDecoration.CustomizableEdges = CustomizableEdges22
+        cbDevice2.Size = New Size(280, 36)
+        cbDevice2.TabIndex = 8
         ' 
-        ' dgCompare
+        ' dgvCompare
         ' 
         DataGridViewCellStyle4.BackColor = Color.White
-        dgCompare.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
+        dgvCompare.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
         DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle5.BackColor = Color.FromArgb(CByte(100), CByte(88), CByte(255))
         DataGridViewCellStyle5.Font = New Font("Segoe UI", 9F)
@@ -251,9 +184,8 @@ Partial Class compareForm
         DataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight
         DataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText
         DataGridViewCellStyle5.WrapMode = DataGridViewTriState.True
-        dgCompare.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
-        dgCompare.ColumnHeadersHeight = 4
-        dgCompare.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
+        dgvCompare.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        dgvCompare.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         DataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle6.BackColor = Color.White
         DataGridViewCellStyle6.Font = New Font("Segoe UI", 9F)
@@ -261,115 +193,123 @@ Partial Class compareForm
         DataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
         DataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
         DataGridViewCellStyle6.WrapMode = DataGridViewTriState.False
-        dgCompare.DefaultCellStyle = DataGridViewCellStyle6
-        dgCompare.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
-        dgCompare.Location = New Point(-6, 579)
-        dgCompare.Name = "dgCompare"
-        dgCompare.RowHeadersVisible = False
-        dgCompare.RowHeadersWidth = 82
-        dgCompare.Size = New Size(2268, 386)
-        dgCompare.TabIndex = 13
-        dgCompare.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White
-        dgCompare.ThemeStyle.AlternatingRowsStyle.Font = Nothing
-        dgCompare.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty
-        dgCompare.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty
-        dgCompare.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty
-        dgCompare.ThemeStyle.BackColor = Color.White
-        dgCompare.ThemeStyle.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
-        dgCompare.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(CByte(100), CByte(88), CByte(255))
-        dgCompare.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None
-        dgCompare.ThemeStyle.HeaderStyle.Font = New Font("Segoe UI", 9F)
-        dgCompare.ThemeStyle.HeaderStyle.ForeColor = Color.White
-        dgCompare.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
-        dgCompare.ThemeStyle.HeaderStyle.Height = 4
-        dgCompare.ThemeStyle.ReadOnly = False
-        dgCompare.ThemeStyle.RowsStyle.BackColor = Color.White
-        dgCompare.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal
-        dgCompare.ThemeStyle.RowsStyle.Font = New Font("Segoe UI", 9F)
-        dgCompare.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
-        dgCompare.ThemeStyle.RowsStyle.Height = 41
-        dgCompare.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
-        dgCompare.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        dgvCompare.DefaultCellStyle = DataGridViewCellStyle6
+        dgvCompare.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        dgvCompare.Location = New Point(117, 421)
+        dgvCompare.Name = "dgvCompare"
+        dgvCompare.RowHeadersVisible = False
+        dgvCompare.RowHeadersWidth = 82
+        dgvCompare.Size = New Size(1854, 472)
+        dgvCompare.TabIndex = 9
+        dgvCompare.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White
+        dgvCompare.ThemeStyle.AlternatingRowsStyle.Font = Nothing
+        dgvCompare.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty
+        dgvCompare.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty
+        dgvCompare.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty
+        dgvCompare.ThemeStyle.BackColor = Color.White
+        dgvCompare.ThemeStyle.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        dgvCompare.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(CByte(100), CByte(88), CByte(255))
+        dgvCompare.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None
+        dgvCompare.ThemeStyle.HeaderStyle.Font = New Font("Segoe UI", 9F)
+        dgvCompare.ThemeStyle.HeaderStyle.ForeColor = Color.White
+        dgvCompare.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        dgvCompare.ThemeStyle.HeaderStyle.Height = 4
+        dgvCompare.ThemeStyle.ReadOnly = False
+        dgvCompare.ThemeStyle.RowsStyle.BackColor = Color.White
+        dgvCompare.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal
+        dgvCompare.ThemeStyle.RowsStyle.Font = New Font("Segoe UI", 9F)
+        dgvCompare.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        dgvCompare.ThemeStyle.RowsStyle.Height = 41
+        dgvCompare.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        dgvCompare.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        ' 
+        ' btnCompare
+        ' 
+        btnCompare.BorderRadius = 25
+        btnCompare.CustomizableEdges = CustomizableEdges23
+        btnCompare.DisabledState.BorderColor = Color.DarkGray
+        btnCompare.DisabledState.CustomBorderColor = Color.DarkGray
+        btnCompare.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btnCompare.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btnCompare.Font = New Font("Segoe UI", 9F)
+        btnCompare.ForeColor = Color.White
+        btnCompare.Location = New Point(899, 333)
+        btnCompare.Name = "btnCompare"
+        btnCompare.ShadowDecoration.CustomizableEdges = CustomizableEdges24
+        btnCompare.Size = New Size(267, 70)
+        btnCompare.TabIndex = 10
+        btnCompare.Text = "Compare"
         ' 
         ' btnClear
         ' 
         btnClear.BorderRadius = 25
-        btnClear.CustomizableEdges = CustomizableEdges29
+        btnClear.CustomizableEdges = CustomizableEdges25
         btnClear.DisabledState.BorderColor = Color.DarkGray
         btnClear.DisabledState.CustomBorderColor = Color.DarkGray
         btnClear.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
         btnClear.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
-        btnClear.Font = New Font("Segoe UI", 16.125F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnClear.Font = New Font("Segoe UI", 9F)
         btnClear.ForeColor = Color.White
-        btnClear.Location = New Point(1507, 990)
+        btnClear.Location = New Point(1379, 915)
         btnClear.Name = "btnClear"
-        btnClear.ShadowDecoration.CustomizableEdges = CustomizableEdges30
-        btnClear.Size = New Size(335, 84)
-        btnClear.TabIndex = 14
+        btnClear.ShadowDecoration.CustomizableEdges = CustomizableEdges26
+        btnClear.Size = New Size(267, 70)
+        btnClear.TabIndex = 11
         btnClear.Text = "Clear"
         ' 
         ' btnBack
         ' 
         btnBack.BorderRadius = 25
-        btnBack.CustomizableEdges = CustomizableEdges31
+        btnBack.CustomizableEdges = CustomizableEdges27
         btnBack.DisabledState.BorderColor = Color.DarkGray
         btnBack.DisabledState.CustomBorderColor = Color.DarkGray
         btnBack.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
         btnBack.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
-        btnBack.Font = New Font("Segoe UI", 16.125F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        btnBack.Font = New Font("Segoe UI", 9F)
         btnBack.ForeColor = Color.White
-        btnBack.Location = New Point(572, 990)
+        btnBack.Location = New Point(564, 915)
         btnBack.Name = "btnBack"
-        btnBack.ShadowDecoration.CustomizableEdges = CustomizableEdges32
-        btnBack.Size = New Size(335, 84)
-        btnBack.TabIndex = 15
+        btnBack.ShadowDecoration.CustomizableEdges = CustomizableEdges28
+        btnBack.Size = New Size(267, 70)
+        btnBack.TabIndex = 12
         btnBack.Text = "Back"
         ' 
-        ' compareForm
+        ' compareform
         ' 
         AutoScaleDimensions = New SizeF(13F, 32F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(2263, 1086)
+        ClientSize = New Size(2045, 997)
         Controls.Add(btnBack)
         Controls.Add(btnClear)
-        Controls.Add(dgCompare)
         Controls.Add(btnCompare)
-        Controls.Add(Guna2HtmlLabel8)
-        Controls.Add(Guna2HtmlLabel7)
-        Controls.Add(Guna2HtmlLabel6)
+        Controls.Add(dgvCompare)
+        Controls.Add(cbDevice2)
+        Controls.Add(cbBrand2)
+        Controls.Add(cbDevice1)
+        Controls.Add(cbBrand1)
         Controls.Add(Guna2HtmlLabel5)
         Controls.Add(Guna2HtmlLabel4)
-        Controls.Add(cmbDevice2)
-        Controls.Add(cmbDevice1)
-        Controls.Add(cmbBrand2)
-        Controls.Add(cmbBrand1)
         Controls.Add(Guna2HtmlLabel3)
         Controls.Add(Guna2HtmlLabel2)
-        Controls.Add(Guna2GradientPanel1)
-        Name = "compareForm"
-        Text = "compareForm"
-        Guna2GradientPanel1.ResumeLayout(False)
-        Guna2GradientPanel1.PerformLayout()
-        CType(dgCompare, ComponentModel.ISupportInitialize).EndInit()
+        Controls.Add(Guna2HtmlLabel1)
+        Name = "compareform"
+        Text = "compareform"
+        CType(dgvCompare, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
 
-    Friend WithEvents Guna2GradientPanel1 As Guna.UI2.WinForms.Guna2GradientPanel
     Friend WithEvents Guna2HtmlLabel1 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents Guna2HtmlLabel2 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents Guna2HtmlLabel3 As Guna.UI2.WinForms.Guna2HtmlLabel
-    Friend WithEvents cmbBrand1 As Guna.UI2.WinForms.Guna2ComboBox
-    Friend WithEvents cmbBrand2 As Guna.UI2.WinForms.Guna2ComboBox
-    Friend WithEvents cmbDevice1 As Guna.UI2.WinForms.Guna2ComboBox
-    Friend WithEvents cmbDevice2 As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents Guna2HtmlLabel4 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents Guna2HtmlLabel5 As Guna.UI2.WinForms.Guna2HtmlLabel
-    Friend WithEvents Guna2HtmlLabel6 As Guna.UI2.WinForms.Guna2HtmlLabel
-    Friend WithEvents Guna2HtmlLabel7 As Guna.UI2.WinForms.Guna2HtmlLabel
-    Friend WithEvents Guna2HtmlLabel8 As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents cbBrand1 As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents cbDevice1 As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents cbBrand2 As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents cbDevice2 As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents dgvCompare As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents btnCompare As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents dgCompare As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents btnClear As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnBack As Guna.UI2.WinForms.Guna2Button
 End Class
