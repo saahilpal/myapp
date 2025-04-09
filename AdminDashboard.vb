@@ -140,8 +140,10 @@ Public Class AdminDashboard
     End Sub
 
     Private Sub Feed_Click(sender As Object, e As EventArgs) Handles Feed.Click
-        Dim feed As New feed()
-        feed.Show()
-        Me.Close()
+        MessageBox.Show("Loading feedback. Please wait...", "Feedback", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Dim feedbackForm As New feed(Me)
+        feedbackForm.Show()
+        Me.Hide()
     End Sub
+
 End Class
