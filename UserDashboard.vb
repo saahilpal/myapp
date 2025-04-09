@@ -159,6 +159,7 @@ Public Class UserDashboard
         popForm.Show()
     End Sub
 
+
     Private Sub btnCompare_Click(sender As Object, e As EventArgs) Handles btnCompare.Click
         Dim compareF As New compareform(LoggedInUserID)
         Me.Hide()
