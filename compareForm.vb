@@ -2,14 +2,19 @@
 Imports System.Text.RegularExpressions
 
 Public Class compareform
+    Private connectionString As String = "Data Source=DESKTOP-J1R63G7\SQLEXPRESS;Initial Catalog=test;Integrated Security=True;Trust Server Certificate=True"
+    Private LoggedInUserID As Integer
 
-    Dim connectionString As String = "Data Source=DESKTOP-J1R63G7\SQLEXPRESS;Initial Catalog=test;Integrated Security=True;Trust Server Certificate=True"
+    Public Sub New(userID As Integer)
+        InitializeComponent()
+        LoggedInUserID = userID
+    End Sub
 
     Private Sub compareform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadBrands(cbBrand1)
         LoadBrands(cbBrand2)
-        SetupDeviceComboBox(cbDevice1)
-        SetupDeviceComboBox(cbDevice2)
+        SetupComboBox(cbDevice1)
+        SetupComboBox(cbDevice2)
     End Sub
 
     Private Sub LoadBrands(combo As ComboBox)
@@ -17,19 +22,12 @@ Public Class compareform
         Using con As New SqlConnection(connectionString)
             con.Open()
             Dim cmd As New SqlCommand("SELECT DISTINCT Brand FROM Devices", con)
-            Dim reader = cmd.ExecuteReader()
-            While reader.Read()
-                combo.Items.Add(reader("Brand").ToString())
-            End While
+            Using reader = cmd.ExecuteReader()
+                While reader.Read()
+                    combo.Items.Add(reader("Brand").ToString())
+                End While
+            End Using
         End Using
-    End Sub
-
-    Private Sub cbBrand1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbBrand1.SelectedIndexChanged
-        LoadDevices(cbBrand1.Text, cbDevice1)
-    End Sub
-
-    Private Sub cbBrand2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbBrand2.SelectedIndexChanged
-        LoadDevices(cbBrand2.Text, cbDevice2)
     End Sub
 
     Private Sub LoadDevices(brand As String, combo As ComboBox)
@@ -43,33 +41,40 @@ Public Class compareform
             adapter.Fill(dt)
 
             For Each row As DataRow In dt.Rows
-                Dim name As String = row("Name").ToString()
-                row("Name") = name.Replace("Samsung", "").Replace("Apple", "").Replace("Google", "").Trim()
+                row("Name") = Regex.Replace(row("Name").ToString(), "(?i)\b(Samsung|Apple|Google)\b", "").Trim()
             Next
 
             combo.DataSource = dt
             combo.DisplayMember = "Name"
-            combo.ValueMember = "Name"
         End Using
     End Sub
 
+    Private Sub cbBrand1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbBrand1.SelectedIndexChanged
+        LoadDevices(cbBrand1.Text, cbDevice1)
+    End Sub
+
+    Private Sub cbBrand2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbBrand2.SelectedIndexChanged
+        LoadDevices(cbBrand2.Text, cbDevice2)
+    End Sub
+
     Private Sub btnCompare_Click(sender As Object, e As EventArgs) Handles btnCompare.Click
-        If String.IsNullOrWhiteSpace(cbDevice1.Text) OrElse String.IsNullOrWhiteSpace(cbDevice2.Text) Then
-            MessageBox.Show("Please select both devices to compare.")
+        If cbDevice1.Text = "" OrElse cbDevice2.Text = "" Then
+            MessageBox.Show("Please select both devices.")
+            Return
+        End If
+
+        If cbDevice1.Text = cbDevice2.Text AndAlso cbBrand1.Text = cbBrand2.Text Then
+            MessageBox.Show("You selected the same device for comparison. Please choose two different devices.", "Same Device", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
         End If
 
         Using con As New SqlConnection(connectionString)
             con.Open()
-            Dim query As String =
-                "SELECT d.Name, d.Brand, p.ProcessorName, d.PerformanceID, d.Battery, d.RAM, d.Display, d.Price, d.Camera 
-                 FROM Devices d 
-                 JOIN Performance p ON d.PerformanceID = p.PerformanceID 
-                 WHERE d.Name LIKE @Device1 OR d.Name LIKE @Device2"
-
-            Dim cmd As New SqlCommand(query, con)
-            cmd.Parameters.AddWithValue("@Device1", "%" & cbDevice1.Text & "%")
-            cmd.Parameters.AddWithValue("@Device2", "%" & cbDevice2.Text & "%")
+            Dim cmd As New SqlCommand("SELECT d.Name, d.Brand, d.Battery, d.RAM, d.Display, d.Price, d.Camera, p.ProcessorName, p.PerformanceRank 
+                                   FROM Devices d JOIN Performance p ON d.PerformanceID = p.PerformanceID 
+                                   WHERE d.Name LIKE @dev1 OR d.Name LIKE @dev2", con)
+            cmd.Parameters.AddWithValue("@dev1", "%" & cbDevice1.Text & "%")
+            cmd.Parameters.AddWithValue("@dev2", "%" & cbDevice2.Text & "%")
 
             Dim dt As New DataTable()
             Dim adapter As New SqlDataAdapter(cmd)
@@ -81,114 +86,116 @@ Public Class compareform
                 result.Columns.Add(dt.Rows(0)("Name").ToString())
                 result.Columns.Add(dt.Rows(1)("Name").ToString())
 
-                AddSpec(result, "Brand", dt.Rows(0)("Brand"), dt.Rows(1)("Brand"))
-                AddSpec(result, "Processor", dt.Rows(0)("ProcessorName"), dt.Rows(1)("ProcessorName"))
-                AddSpec(result, "Battery", dt.Rows(0)("Battery"), dt.Rows(1)("Battery"))
-                AddSpec(result, "RAM", dt.Rows(0)("RAM"), dt.Rows(1)("RAM"))
-                AddSpec(result, "Display", dt.Rows(0)("Display"), dt.Rows(1)("Display"))
-                AddSpec(result, "Price", dt.Rows(0)("Price"), dt.Rows(1)("Price"))
-                AddSpec(result, "Camera", dt.Rows(0)("Camera"), dt.Rows(1)("Camera"))
+                AddRow(result, "Brand", dt.Rows(0)("Brand"), dt.Rows(1)("Brand"))
+                AddRow(result, "Processor", dt.Rows(0)("ProcessorName"), dt.Rows(1)("ProcessorName"))
+                AddRow(result, "Battery", dt.Rows(0)("Battery"), dt.Rows(1)("Battery"))
+                AddRow(result, "RAM", dt.Rows(0)("RAM"), dt.Rows(1)("RAM"))
+                AddRow(result, "Display", dt.Rows(0)("Display"), dt.Rows(1)("Display"))
+                AddRow(result, "Price", dt.Rows(0)("Price"), dt.Rows(1)("Price"))
+                AddRow(result, "Camera", dt.Rows(0)("Camera"), dt.Rows(1)("Camera"))
 
                 dgvCompare.DataSource = result
                 dgvCompare.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-                HighlightDifferences(dt)
+
+                HighlightBetterDevice(dt)
             Else
-                MessageBox.Show("Devices not found.")
+                MessageBox.Show("Devices not found in database.")
             End If
         End Using
     End Sub
 
-    Private Sub AddSpec(table As DataTable, label As String, val1 As Object, val2 As Object)
-        Dim row = table.NewRow()
-        row(0) = label
+    Private Sub HighlightBetterDevice(dt As DataTable)
+        Dim dev1 = dt.Rows(0)
+        Dim dev2 = dt.Rows(1)
+        Dim score1 As Integer = 0
+        Dim score2 As Integer = 0
+        Dim reasons1 As New List(Of String)
+        Dim reasons2 As New List(Of String)
+
+        ' Performance Rank
+        Dim rank1 = Convert.ToInt32(dev1("PerformanceRank"))
+        Dim rank2 = Convert.ToInt32(dev2("PerformanceRank"))
+        If rank1 < rank2 Then
+            score1 += 1
+            reasons1.Add("better performance")
+        ElseIf rank2 < rank1 Then
+            score2 += 1
+            reasons2.Add("better performance")
+        End If
+
+        ' Price (lower = better)
+        If Convert.ToDecimal(dev1("Price")) < Convert.ToDecimal(dev2("Price")) Then
+            score1 += 1
+        Else
+            score2 += 1
+        End If
+
+        ' Camera
+        Dim cam1 = ExtractMegapixels(dev1("Camera").ToString())
+        Dim cam2 = ExtractMegapixels(dev2("Camera").ToString())
+        If cam1 > cam2 Then
+            score1 += 1
+            reasons1.Add("better camera")
+        ElseIf cam2 > cam1 Then
+            score2 += 1
+            reasons2.Add("better camera")
+        End If
+
+        ' RAM
+        Dim ram1 = ExtractNumber(dev1("RAM").ToString())
+        Dim ram2 = ExtractNumber(dev2("RAM").ToString())
+        If ram1 > ram2 Then
+            score1 += 1
+        ElseIf ram2 > ram1 Then
+            score2 += 1
+        End If
+
+        ' Highlight better column
+        Dim betterIndex = If(score1 > score2, 1, 2)
+        dgvCompare.Columns(betterIndex).DefaultCellStyle.BackColor = Color.LightGreen
+        dgvCompare.Columns(If(betterIndex = 1, 2, 1)).DefaultCellStyle.BackColor = Color.LightCoral
+
+        ' Final message
+        Dim betterDevice = dt.Rows(betterIndex - 1)("Name").ToString()
+        Dim reasons = If(betterIndex = 1, reasons1, reasons2)
+        Dim msg = betterDevice & " is the overall best."
+
+        If reasons.Count > 0 Then
+            msg &= vbCrLf & "It has " & String.Join(" and ", reasons) & "."
+        End If
+
+        MessageBox.Show(msg, "Comparison Result", MessageBoxButtons.OK, MessageBoxIcon.Information)
+    End Sub
+
+
+    Private Sub AddRow(tbl As DataTable, spec As String, val1 As Object, val2 As Object)
+        Dim row = tbl.NewRow()
+        row("Specification") = spec
         row(1) = val1.ToString()
         row(2) = val2.ToString()
-        table.Rows.Add(row)
+        tbl.Rows.Add(row)
     End Sub
 
-    Private Sub HighlightDifferences(original As DataTable)
-        If dgvCompare.DataSource Is Nothing Then Return
-
-        Dim col1 As Integer = 1, col2 As Integer = 2
-        Dim diffColor As Color = Color.LightSkyBlue
-        Dim highlightColor As Color = Color.FromArgb(200, 230, 255)
-        Dim lossColor As Color = Color.Salmon
-
-        Dim diff1 As Integer = 0, diff2 As Integer = 0
-        Dim price1 As Decimal = 0, price2 As Decimal = 0
-        Dim cam1 As String = "", cam2 As String = ""
-
-        ' Pre-read price and camera values
-        For Each row As DataGridViewRow In dgvCompare.Rows
-            If row.IsNewRow Then Continue For
-            Dim spec = row.Cells(0).Value.ToString().ToLower()
-
-            If spec.Contains("price") Then
-                Decimal.TryParse(row.Cells(col1).Value.ToString(), price1)
-                Decimal.TryParse(row.Cells(col2).Value.ToString(), price2)
-            ElseIf spec.Contains("camera") Then
-                cam1 = row.Cells(col1).Value.ToString()
-                cam2 = row.Cells(col2).Value.ToString()
-            End If
-        Next
-
-        ' Highlight differences
-        For Each row As DataGridViewRow In dgvCompare.Rows
-            If row.IsNewRow Then Continue For
-            Dim spec = row.Cells(0).Value.ToString().ToLower()
-            Dim val1 = row.Cells(col1).Value.ToString()
-            Dim val2 = row.Cells(col2).Value.ToString()
-
-            If val1 <> val2 AndAlso Not spec.Contains("camera") Then
-                row.Cells(col1).Style.BackColor = diffColor
-                row.Cells(col2).Style.BackColor = diffColor
-                diff1 += 1 : diff2 += 1
-            End If
-        Next
-
-        ' Compare camera
-        Dim mp1 = ExtractMegapixels(cam1)
-        Dim mp2 = ExtractMegapixels(cam2)
-
-        For Each row As DataGridViewRow In dgvCompare.Rows
-            If row.IsNewRow Then Continue For
-            If row.Cells(0).Value.ToString().ToLower().Contains("camera") Then
-                If price1 > price2 AndAlso mp1 < mp2 Then
-                    row.Cells(col1).Style.BackColor = lossColor
-                    row.Cells(col1).Style.ForeColor = Color.White
-                    diff1 += 1
-                ElseIf price2 > price1 AndAlso mp2 < mp1 Then
-                    row.Cells(col2).Style.BackColor = lossColor
-                    row.Cells(col2).Style.ForeColor = Color.White
-                    diff2 += 1
-                End If
-            End If
-        Next
-
-        ' Highlight name of the weaker device
-        If diff1 > diff2 Then
-            dgvCompare.Rows(0).Cells(col1).Style.BackColor = highlightColor
-        ElseIf diff2 > diff1 Then
-            dgvCompare.Rows(0).Cells(col2).Style.BackColor = highlightColor
+    Private Function ExtractMegapixels(text As String) As Integer
+        Dim matches = Regex.Matches(text, "\d+")
+        If matches.Count > 0 Then
+            Return matches.Cast(Of Match).Select(Function(m) Integer.Parse(m.Value)).Max()
         End If
-    End Sub
-
-    Private Function ExtractMegapixels(value As String) As Integer
-        Dim matches = Regex.Matches(value, "\d+")
-        Dim maxMP As Integer = 0
-        For Each m As Match In matches
-            Dim val = Integer.Parse(m.Value)
-            If val > maxMP Then maxMP = val
-        Next
-        Return maxMP
+        Return 0
     End Function
 
-    Private Sub SetupDeviceComboBox(combo As ComboBox)
+    Private Function ExtractNumber(text As String) As Integer
+        Dim match = Regex.Match(text, "\d+")
+        Return If(match.Success, Integer.Parse(match.Value), 0)
+    End Function
+
+    Private Sub SetupComboBox(combo As ComboBox)
         combo.DropDownStyle = ComboBoxStyle.DropDownList
         combo.IntegralHeight = False
         combo.MaxDropDownItems = 10
-        combo.Width = 400
-        combo.Font = New Font("Segoe UI", 12, FontStyle.Regular)
+        combo.Width = 300
+        combo.DropDownWidth = 600
+        combo.Font = New Font("Segoe UI", 12)
     End Sub
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
@@ -200,8 +207,8 @@ Public Class compareform
     End Sub
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
-        AdminDashboard.Show()
+        Dim dashboard As New UserDashboard(LoggedInUserID)
+        dashboard.Show()
         Me.Close()
     End Sub
-
 End Class
