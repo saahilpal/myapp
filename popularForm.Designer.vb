@@ -29,6 +29,7 @@ Partial Class popularForm
         Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(popularForm))
         Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         dgPopularPhones = New Guna.UI2.WinForms.Guna2DataGridView()
         btnBack = New Guna.UI2.WinForms.Guna2Button()
@@ -70,11 +71,11 @@ Partial Class popularForm
         DataGridViewCellStyle3.WrapMode = DataGridViewTriState.False
         dgPopularPhones.DefaultCellStyle = DataGridViewCellStyle3
         dgPopularPhones.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
-        dgPopularPhones.Location = New Point(-8, 0)
+        dgPopularPhones.Location = New Point(-23, -20)
         dgPopularPhones.Name = "dgPopularPhones"
         dgPopularPhones.RowHeadersVisible = False
         dgPopularPhones.RowHeadersWidth = 82
-        dgPopularPhones.Size = New Size(1263, 363)
+        dgPopularPhones.Size = New Size(1253, 389)
         dgPopularPhones.TabIndex = 1
         dgPopularPhones.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White
         dgPopularPhones.ThemeStyle.AlternatingRowsStyle.Font = Nothing
@@ -100,6 +101,7 @@ Partial Class popularForm
         ' 
         ' btnBack
         ' 
+        btnBack.BackColor = Color.Transparent
         btnBack.BorderRadius = 25
         btnBack.CustomizableEdges = CustomizableEdges1
         btnBack.DisabledState.BorderColor = Color.DarkGray
@@ -133,7 +135,8 @@ Partial Class popularForm
         ' 
         AutoScaleDimensions = New SizeF(13F, 32F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1279, 867)
+        BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
+        ClientSize = New Size(1228, 922)
         Controls.Add(Guna2Panel1)
         Controls.Add(btnBack)
         Controls.Add(Guna2HtmlLabel1)

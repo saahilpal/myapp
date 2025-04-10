@@ -36,7 +36,13 @@ Public Class UserDashboard
             End Using
 
             cboPerformance.Items.AddRange({"All", "Flagship", "Fast", "Average"})
-            cboPrice.Items.AddRange({"All", "Budget", "Mid-Range", "Premium"})
+
+            cboPrice.Items.Clear()
+            cboPrice.Items.Add("All")
+            cboPrice.Items.Add("Budget (₹0 – ₹25,000)")
+            cboPrice.Items.Add("Mid-Range (₹25,001 – ₹50,000)")
+            cboPrice.Items.Add("Premium (₹50,001 and above)")
+
             cboBattery.Items.AddRange({"All", "Medium Capacity", "High Capacity"})
         End Using
     End Sub
@@ -53,7 +59,8 @@ Public Class UserDashboard
     Private Sub LoadDevices(searchText As String)
         Using con As New SqlConnection(connectionString)
             con.Open()
-            Dim query As String = "SELECT d.Name, d.Brand, d.Battery, d.Camera, p.ProcessorName, d.RAM, d.Price " &
+
+            Dim query As String = "SELECT d.DeviceID, d.Name, d.Brand, d.Battery, d.Camera, p.ProcessorName, d.RAM, d.Price " &
                                   "FROM Devices d INNER JOIN Performance p ON d.PerformanceID = p.PerformanceID " &
                                   "WHERE d.Name LIKE @Search OR d.Brand LIKE @Search"
 
@@ -63,7 +70,14 @@ Public Class UserDashboard
             Dim table As New DataTable()
             adapter.Fill(table)
 
+            dgDevices.Columns.Clear()
             dgDevices.DataSource = table
+
+            ' Hide DeviceID column after binding data
+            HideDeviceIDColumn()
+
+            AddWishlistButtonColumn()
+
             dgDevices.Visible = True
 
             If table.Rows.Count = 0 Then
@@ -72,12 +86,18 @@ Public Class UserDashboard
         End Using
     End Sub
 
+    Private Sub HideDeviceIDColumn()
+        If dgDevices.Columns.Contains("DeviceID") Then
+            dgDevices.Columns("DeviceID").Visible = False
+        End If
+    End Sub
+
     Private Sub btnApplyFilters_Click(sender As Object, e As EventArgs) Handles btnApplyFilters.Click
         Dim priceCategory = If(cboPrice.SelectedIndex > 0, cboPrice.SelectedItem.ToString(), "")
         Dim performanceCategory = If(cboPerformance.SelectedIndex > 0, cboPerformance.SelectedItem.ToString(), "")
 
-        If (priceCategory = "Budget" AndAlso (performanceCategory = "Flagship" OrElse performanceCategory = "Fast")) OrElse
-           (priceCategory = "Mid-Range" AndAlso performanceCategory = "Flagship") Then
+        If (priceCategory.Contains("Budget") AndAlso (performanceCategory = "Flagship" OrElse performanceCategory = "Fast")) OrElse
+           (priceCategory.Contains("Mid-Range") AndAlso performanceCategory = "Flagship") Then
             MessageBox.Show("Selected combination is unlikely or not available (e.g., Budget + Flagship).", "Invalid Filter", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
         End If
@@ -85,7 +105,7 @@ Public Class UserDashboard
         Using con As New SqlConnection(connectionString)
             con.Open()
 
-            Dim query As String = "SELECT d.Name, d.Brand, d.Battery, d.Camera, p.ProcessorName, d.RAM, d.Price FROM Devices d " &
+            Dim query As String = "SELECT d.DeviceID, d.Name, d.Brand, d.Battery, d.Camera, p.ProcessorName, d.RAM, d.Price FROM Devices d " &
                                   "INNER JOIN Performance p ON d.PerformanceID = p.PerformanceID WHERE 1=1"
             Dim parameters As New List(Of SqlParameter)()
 
@@ -103,10 +123,10 @@ Public Class UserDashboard
             End If
 
             If cboPrice.SelectedIndex > 0 Then
-                Select Case priceCategory
-                    Case "Budget" : query &= " AND d.Price BETWEEN 0 AND 25000"
-                    Case "Mid-Range" : query &= " AND d.Price BETWEEN 25000 AND 50000"
-                    Case "Premium" : query &= " AND d.Price > 50000"
+                Select Case cboPrice.SelectedIndex
+                    Case 1 : query &= " AND d.Price BETWEEN 0 AND 25000"
+                    Case 2 : query &= " AND d.Price BETWEEN 25001 AND 50000"
+                    Case 3 : query &= " AND d.Price > 50000"
                 End Select
             End If
 
@@ -126,13 +146,59 @@ Public Class UserDashboard
             Dim table As New DataTable()
             adapter.Fill(table)
 
+            dgDevices.Columns.Clear()
             dgDevices.DataSource = table
+
+            HideDeviceIDColumn()
+
+            AddWishlistButtonColumn()
+
             dgDevices.Visible = True
 
             If table.Rows.Count = 0 Then
                 MessageBox.Show("No matching devices found.", "Filter Result", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         End Using
+    End Sub
+
+    Private Sub AddWishlistButtonColumn()
+        If dgDevices.Columns.Contains("Wishlist") Then Return
+
+        Dim btnCol As New DataGridViewButtonColumn With {
+            .HeaderText = "Wishlist",
+            .Text = "Add",
+            .Name = "Wishlist",
+            .UseColumnTextForButtonValue = True
+        }
+        dgDevices.Columns.Insert(0, btnCol)
+    End Sub
+
+    Private Sub dgDevices_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgDevices.CellContentClick
+        If e.ColumnIndex = dgDevices.Columns("Wishlist").Index AndAlso e.RowIndex >= 0 Then
+            Dim deviceID As Integer = Convert.ToInt32(dgDevices.Rows(e.RowIndex).Cells("DeviceID").Value)
+            Dim deviceName As String = dgDevices.Rows(e.RowIndex).Cells("Name").Value.ToString()
+
+            Using con As New SqlConnection(connectionString)
+                con.Open()
+
+                Dim checkCmd As New SqlCommand("SELECT COUNT(*) FROM Wishlist WHERE UserID = @UserID AND DeviceID = @DeviceID", con)
+                checkCmd.Parameters.AddWithValue("@UserID", LoggedInUserID)
+                checkCmd.Parameters.AddWithValue("@DeviceID", deviceID)
+
+                Dim exists As Integer = Convert.ToInt32(checkCmd.ExecuteScalar())
+                If exists > 0 Then
+                    MessageBox.Show("This device is already in your wishlist.", "Duplicate", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Return
+                End If
+
+                Dim insertCmd As New SqlCommand("INSERT INTO Wishlist (UserID, DeviceID) VALUES (@UserID, @DeviceID)", con)
+                insertCmd.Parameters.AddWithValue("@UserID", LoggedInUserID)
+                insertCmd.Parameters.AddWithValue("@DeviceID", deviceID)
+                insertCmd.ExecuteNonQuery()
+
+                MessageBox.Show($"{deviceName} has been added to your wishlist!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End Using
+        End If
     End Sub
 
     Private Sub btnFilter_Click(sender As Object, e As EventArgs) Handles btnFilter.Click
@@ -158,7 +224,6 @@ Public Class UserDashboard
         Dim popForm As New popularForm()
         popForm.Show()
     End Sub
-
 
     Private Sub btnCompare_Click(sender As Object, e As EventArgs) Handles btnCompare.Click
         Dim compareF As New compareform(LoggedInUserID)

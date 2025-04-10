@@ -58,9 +58,13 @@ Public Class loginform
                                 dashboard.Show()
                             End If
 
+                            txtEmail.Clear()
+                            txtPassword.Clear()
                             Me.Hide()
                         Else
                             MessageBox.Show("Invalid email or password!", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            txtEmail.Clear()
+                            txtPassword.Clear()
                         End If
                     End Using
                 End Using
@@ -71,6 +75,8 @@ Public Class loginform
     End Sub
 
     Private Sub Guna2Button2_Click(sender As Object, e As EventArgs) Handles Guna2Button2.Click
+        txtEmail.Clear()
+        txtPassword.Clear()
         RegisterForm.Show()
         Me.Hide()
     End Sub

@@ -82,7 +82,7 @@ Public Class wishlistForm
                     If Not dgWishlist.Columns.Contains("Removebtn") Then
                         Dim removeBtn As New DataGridViewButtonColumn()
                         removeBtn.Name = "Removebtn"
-                        removeBtn.HeaderText = ""
+                        removeBtn.HeaderText = "Remove"
                         removeBtn.Text = "Remove"
                         removeBtn.UseColumnTextForButtonValue = True
                         removeBtn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells

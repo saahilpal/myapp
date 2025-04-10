@@ -42,6 +42,7 @@ Partial Class feedbackForm
         ' ratingStars
         ' 
         ratingStars.BackColor = Color.WhiteSmoke
+        ratingStars.BorderThickness = 4
         ratingStars.Location = New Point(361, 160)
         ratingStars.Name = "ratingStars"
         ratingStars.RatingColor = Color.Gold

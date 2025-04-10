@@ -42,13 +42,13 @@ Partial Class UserDashboard
         Dim CustomizableEdges18 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges19 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges20 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges21 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges22 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim CustomizableEdges33 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges34 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges31 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges32 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges21 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges22 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges23 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges24 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges25 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
@@ -57,11 +57,9 @@ Partial Class UserDashboard
         Dim CustomizableEdges28 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges29 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges30 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges31 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges32 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges35 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges36 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Guna2CustomGradientPanel1 = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
+        Dim CustomizableEdges33 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges34 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(UserDashboard))
         Guna2HtmlLabel6 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         txtSearch = New Guna.UI2.WinForms.Guna2TextBox()
         Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
@@ -87,30 +85,19 @@ Partial Class UserDashboard
         btnWishlist = New Guna.UI2.WinForms.Guna2Button()
         btnPopular = New Guna.UI2.WinForms.Guna2Button()
         btnClear = New Guna.UI2.WinForms.Guna2Button()
-        Guna2CustomGradientPanel1.SuspendLayout()
         pnlFilters.SuspendLayout()
         deviceListPanel.SuspendLayout()
         CType(dgDevices, ComponentModel.ISupportInitialize).BeginInit()
         Guna2Panel1.SuspendLayout()
         SuspendLayout()
         ' 
-        ' Guna2CustomGradientPanel1
-        ' 
-        Guna2CustomGradientPanel1.Controls.Add(Guna2HtmlLabel6)
-        Guna2CustomGradientPanel1.CustomizableEdges = CustomizableEdges1
-        Guna2CustomGradientPanel1.Dock = DockStyle.Top
-        Guna2CustomGradientPanel1.Location = New Point(0, 0)
-        Guna2CustomGradientPanel1.Name = "Guna2CustomGradientPanel1"
-        Guna2CustomGradientPanel1.ShadowDecoration.CustomizableEdges = CustomizableEdges2
-        Guna2CustomGradientPanel1.Size = New Size(2373, 60)
-        Guna2CustomGradientPanel1.TabIndex = 0
-        ' 
         ' Guna2HtmlLabel6
         ' 
         Guna2HtmlLabel6.BackColor = Color.Transparent
-        Guna2HtmlLabel6.Location = New Point(1099, 12)
+        Guna2HtmlLabel6.Font = New Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Guna2HtmlLabel6.Location = New Point(1091, 38)
         Guna2HtmlLabel6.Name = "Guna2HtmlLabel6"
-        Guna2HtmlLabel6.Size = New Size(127, 34)
+        Guna2HtmlLabel6.Size = New Size(358, 88)
         Guna2HtmlLabel6.TabIndex = 0
         Guna2HtmlLabel6.Text = "BudgetByte"
         ' 
@@ -118,7 +105,7 @@ Partial Class UserDashboard
         ' 
         txtSearch.BackColor = Color.Transparent
         txtSearch.BorderRadius = 25
-        txtSearch.CustomizableEdges = CustomizableEdges3
+        txtSearch.CustomizableEdges = CustomizableEdges1
         txtSearch.DefaultText = ""
         txtSearch.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         txtSearch.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
@@ -134,7 +121,7 @@ Partial Class UserDashboard
         txtSearch.PasswordChar = ChrW(0)
         txtSearch.PlaceholderText = "                                                        Search Device"
         txtSearch.SelectedText = ""
-        txtSearch.ShadowDecoration.CustomizableEdges = CustomizableEdges4
+        txtSearch.ShadowDecoration.CustomizableEdges = CustomizableEdges2
         txtSearch.Size = New Size(981, 79)
         txtSearch.TabIndex = 1
         ' 
@@ -153,7 +140,7 @@ Partial Class UserDashboard
         ' 
         btnSearch.BackColor = Color.Transparent
         btnSearch.BorderRadius = 25
-        btnSearch.CustomizableEdges = CustomizableEdges5
+        btnSearch.CustomizableEdges = CustomizableEdges3
         btnSearch.DisabledState.BorderColor = Color.DarkGray
         btnSearch.DisabledState.CustomBorderColor = Color.DarkGray
         btnSearch.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -163,7 +150,7 @@ Partial Class UserDashboard
         btnSearch.ForeColor = Color.White
         btnSearch.Location = New Point(1855, 175)
         btnSearch.Name = "btnSearch"
-        btnSearch.ShadowDecoration.CustomizableEdges = CustomizableEdges6
+        btnSearch.ShadowDecoration.CustomizableEdges = CustomizableEdges4
         btnSearch.Size = New Size(96, 79)
         btnSearch.TabIndex = 4
         btnSearch.Text = "🔍"
@@ -173,7 +160,7 @@ Partial Class UserDashboard
         ' 
         cboBrand.BackColor = Color.Transparent
         cboBrand.BorderRadius = 25
-        cboBrand.CustomizableEdges = CustomizableEdges7
+        cboBrand.CustomizableEdges = CustomizableEdges5
         cboBrand.DrawMode = DrawMode.OwnerDrawFixed
         cboBrand.DropDownStyle = ComboBoxStyle.DropDownList
         cboBrand.FocusedColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
@@ -183,7 +170,7 @@ Partial Class UserDashboard
         cboBrand.ItemHeight = 55
         cboBrand.Location = New Point(140, 46)
         cboBrand.Name = "cboBrand"
-        cboBrand.ShadowDecoration.CustomizableEdges = CustomizableEdges8
+        cboBrand.ShadowDecoration.CustomizableEdges = CustomizableEdges6
         cboBrand.Size = New Size(245, 61)
         cboBrand.TabIndex = 6
         ' 
@@ -191,7 +178,7 @@ Partial Class UserDashboard
         ' 
         cboPrice.BackColor = Color.Transparent
         cboPrice.BorderRadius = 25
-        cboPrice.CustomizableEdges = CustomizableEdges9
+        cboPrice.CustomizableEdges = CustomizableEdges7
         cboPrice.DrawMode = DrawMode.OwnerDrawFixed
         cboPrice.DropDownStyle = ComboBoxStyle.DropDownList
         cboPrice.FocusedColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
@@ -201,7 +188,7 @@ Partial Class UserDashboard
         cboPrice.ItemHeight = 55
         cboPrice.Location = New Point(606, 38)
         cboPrice.Name = "cboPrice"
-        cboPrice.ShadowDecoration.CustomizableEdges = CustomizableEdges10
+        cboPrice.ShadowDecoration.CustomizableEdges = CustomizableEdges8
         cboPrice.Size = New Size(281, 61)
         cboPrice.TabIndex = 7
         ' 
@@ -209,7 +196,7 @@ Partial Class UserDashboard
         ' 
         cboPerformance.BackColor = Color.Transparent
         cboPerformance.BorderRadius = 25
-        cboPerformance.CustomizableEdges = CustomizableEdges11
+        cboPerformance.CustomizableEdges = CustomizableEdges9
         cboPerformance.DrawMode = DrawMode.OwnerDrawFixed
         cboPerformance.DropDownStyle = ComboBoxStyle.DropDownList
         cboPerformance.FocusedColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
@@ -219,7 +206,7 @@ Partial Class UserDashboard
         cboPerformance.ItemHeight = 55
         cboPerformance.Location = New Point(1146, 38)
         cboPerformance.Name = "cboPerformance"
-        cboPerformance.ShadowDecoration.CustomizableEdges = CustomizableEdges12
+        cboPerformance.ShadowDecoration.CustomizableEdges = CustomizableEdges10
         cboPerformance.Size = New Size(259, 61)
         cboPerformance.TabIndex = 8
         ' 
@@ -227,7 +214,7 @@ Partial Class UserDashboard
         ' 
         cboBattery.BackColor = Color.Transparent
         cboBattery.BorderRadius = 25
-        cboBattery.CustomizableEdges = CustomizableEdges13
+        cboBattery.CustomizableEdges = CustomizableEdges11
         cboBattery.DrawMode = DrawMode.OwnerDrawFixed
         cboBattery.DropDownStyle = ComboBoxStyle.DropDownList
         cboBattery.FocusedColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
@@ -237,14 +224,14 @@ Partial Class UserDashboard
         cboBattery.ItemHeight = 55
         cboBattery.Location = New Point(1565, 37)
         cboBattery.Name = "cboBattery"
-        cboBattery.ShadowDecoration.CustomizableEdges = CustomizableEdges14
+        cboBattery.ShadowDecoration.CustomizableEdges = CustomizableEdges12
         cboBattery.Size = New Size(283, 61)
         cboBattery.TabIndex = 9
         ' 
         ' btnApplyFilters
         ' 
         btnApplyFilters.BorderRadius = 25
-        btnApplyFilters.CustomizableEdges = CustomizableEdges15
+        btnApplyFilters.CustomizableEdges = CustomizableEdges13
         btnApplyFilters.DisabledState.BorderColor = Color.DarkGray
         btnApplyFilters.DisabledState.CustomBorderColor = Color.DarkGray
         btnApplyFilters.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -254,7 +241,7 @@ Partial Class UserDashboard
         btnApplyFilters.ForeColor = Color.White
         btnApplyFilters.Location = New Point(1871, 37)
         btnApplyFilters.Name = "btnApplyFilters"
-        btnApplyFilters.ShadowDecoration.CustomizableEdges = CustomizableEdges16
+        btnApplyFilters.ShadowDecoration.CustomizableEdges = CustomizableEdges14
         btnApplyFilters.Size = New Size(188, 59)
         btnApplyFilters.TabIndex = 10
         btnApplyFilters.Text = "Apply Filter"
@@ -301,6 +288,7 @@ Partial Class UserDashboard
         ' 
         ' pnlFilters
         ' 
+        pnlFilters.BackColor = Color.Transparent
         pnlFilters.Controls.Add(cboPerformance)
         pnlFilters.Controls.Add(Guna2HtmlLabel5)
         pnlFilters.Controls.Add(cboBrand)
@@ -310,10 +298,10 @@ Partial Class UserDashboard
         pnlFilters.Controls.Add(cboBattery)
         pnlFilters.Controls.Add(Guna2HtmlLabel2)
         pnlFilters.Controls.Add(btnApplyFilters)
-        pnlFilters.CustomizableEdges = CustomizableEdges17
+        pnlFilters.CustomizableEdges = CustomizableEdges15
         pnlFilters.Location = New Point(259, 298)
         pnlFilters.Name = "pnlFilters"
-        pnlFilters.ShadowDecoration.CustomizableEdges = CustomizableEdges18
+        pnlFilters.ShadowDecoration.CustomizableEdges = CustomizableEdges16
         pnlFilters.Size = New Size(2114, 184)
         pnlFilters.TabIndex = 15
         pnlFilters.Visible = False
@@ -322,7 +310,7 @@ Partial Class UserDashboard
         ' 
         btnFilter.BackColor = Color.Transparent
         btnFilter.BorderRadius = 25
-        btnFilter.CustomizableEdges = CustomizableEdges19
+        btnFilter.CustomizableEdges = CustomizableEdges17
         btnFilter.DisabledState.BorderColor = Color.DarkGray
         btnFilter.DisabledState.CustomBorderColor = Color.DarkGray
         btnFilter.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -332,7 +320,7 @@ Partial Class UserDashboard
         btnFilter.ForeColor = Color.White
         btnFilter.Location = New Point(1984, 175)
         btnFilter.Name = "btnFilter"
-        btnFilter.ShadowDecoration.CustomizableEdges = CustomizableEdges20
+        btnFilter.ShadowDecoration.CustomizableEdges = CustomizableEdges18
         btnFilter.Size = New Size(103, 79)
         btnFilter.TabIndex = 16
         btnFilter.Text = " Filter"
@@ -341,10 +329,10 @@ Partial Class UserDashboard
         ' deviceListPanel
         ' 
         deviceListPanel.Controls.Add(dgDevices)
-        deviceListPanel.CustomizableEdges = CustomizableEdges21
+        deviceListPanel.CustomizableEdges = CustomizableEdges19
         deviceListPanel.Location = New Point(259, 485)
         deviceListPanel.Name = "deviceListPanel"
-        deviceListPanel.ShadowDecoration.CustomizableEdges = CustomizableEdges22
+        deviceListPanel.ShadowDecoration.CustomizableEdges = CustomizableEdges20
         deviceListPanel.Size = New Size(2163, 683)
         deviceListPanel.TabIndex = 17
         ' 
@@ -410,22 +398,23 @@ Partial Class UserDashboard
         ' 
         ' Guna2Panel1
         ' 
+        Guna2Panel1.BackColor = Color.Transparent
         Guna2Panel1.Controls.Add(btnLogout)
         Guna2Panel1.Controls.Add(btnFeedback)
         Guna2Panel1.Controls.Add(btnCompare)
         Guna2Panel1.Controls.Add(btnWishlist)
         Guna2Panel1.Controls.Add(btnPopular)
-        Guna2Panel1.CustomizableEdges = CustomizableEdges33
-        Guna2Panel1.Location = New Point(-17, 66)
+        Guna2Panel1.CustomizableEdges = CustomizableEdges31
+        Guna2Panel1.Location = New Point(-17, -11)
         Guna2Panel1.Name = "Guna2Panel1"
-        Guna2Panel1.ShadowDecoration.CustomizableEdges = CustomizableEdges34
-        Guna2Panel1.Size = New Size(270, 1039)
+        Guna2Panel1.ShadowDecoration.CustomizableEdges = CustomizableEdges32
+        Guna2Panel1.Size = New Size(270, 1116)
         Guna2Panel1.TabIndex = 18
         ' 
         ' btnLogout
         ' 
         btnLogout.BorderRadius = 25
-        btnLogout.CustomizableEdges = CustomizableEdges23
+        btnLogout.CustomizableEdges = CustomizableEdges21
         btnLogout.DisabledState.BorderColor = Color.DarkGray
         btnLogout.DisabledState.CustomBorderColor = Color.DarkGray
         btnLogout.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -435,7 +424,7 @@ Partial Class UserDashboard
         btnLogout.ForeColor = Color.White
         btnLogout.Location = New Point(17, 818)
         btnLogout.Name = "btnLogout"
-        btnLogout.ShadowDecoration.CustomizableEdges = CustomizableEdges24
+        btnLogout.ShadowDecoration.CustomizableEdges = CustomizableEdges22
         btnLogout.Size = New Size(238, 108)
         btnLogout.TabIndex = 4
         btnLogout.Text = "🔙 Logout"
@@ -443,7 +432,7 @@ Partial Class UserDashboard
         ' btnFeedback
         ' 
         btnFeedback.BorderRadius = 25
-        btnFeedback.CustomizableEdges = CustomizableEdges25
+        btnFeedback.CustomizableEdges = CustomizableEdges23
         btnFeedback.DisabledState.BorderColor = Color.DarkGray
         btnFeedback.DisabledState.CustomBorderColor = Color.DarkGray
         btnFeedback.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -453,7 +442,7 @@ Partial Class UserDashboard
         btnFeedback.ForeColor = Color.White
         btnFeedback.Location = New Point(17, 639)
         btnFeedback.Name = "btnFeedback"
-        btnFeedback.ShadowDecoration.CustomizableEdges = CustomizableEdges26
+        btnFeedback.ShadowDecoration.CustomizableEdges = CustomizableEdges24
         btnFeedback.Size = New Size(238, 108)
         btnFeedback.TabIndex = 3
         btnFeedback.Text = "💬 Feedback"
@@ -461,7 +450,7 @@ Partial Class UserDashboard
         ' btnCompare
         ' 
         btnCompare.BorderRadius = 25
-        btnCompare.CustomizableEdges = CustomizableEdges27
+        btnCompare.CustomizableEdges = CustomizableEdges25
         btnCompare.DisabledState.BorderColor = Color.DarkGray
         btnCompare.DisabledState.CustomBorderColor = Color.DarkGray
         btnCompare.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -471,7 +460,7 @@ Partial Class UserDashboard
         btnCompare.ForeColor = Color.White
         btnCompare.Location = New Point(17, 471)
         btnCompare.Name = "btnCompare"
-        btnCompare.ShadowDecoration.CustomizableEdges = CustomizableEdges28
+        btnCompare.ShadowDecoration.CustomizableEdges = CustomizableEdges26
         btnCompare.Size = New Size(238, 108)
         btnCompare.TabIndex = 2
         btnCompare.Text = "🔄 Compare"
@@ -479,7 +468,7 @@ Partial Class UserDashboard
         ' btnWishlist
         ' 
         btnWishlist.BorderRadius = 25
-        btnWishlist.CustomizableEdges = CustomizableEdges29
+        btnWishlist.CustomizableEdges = CustomizableEdges27
         btnWishlist.DisabledState.BorderColor = Color.DarkGray
         btnWishlist.DisabledState.CustomBorderColor = Color.DarkGray
         btnWishlist.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -489,7 +478,7 @@ Partial Class UserDashboard
         btnWishlist.ForeColor = Color.White
         btnWishlist.Location = New Point(17, 298)
         btnWishlist.Name = "btnWishlist"
-        btnWishlist.ShadowDecoration.CustomizableEdges = CustomizableEdges30
+        btnWishlist.ShadowDecoration.CustomizableEdges = CustomizableEdges28
         btnWishlist.Size = New Size(238, 108)
         btnWishlist.TabIndex = 1
         btnWishlist.Text = "⭐ Wishlist"
@@ -497,7 +486,7 @@ Partial Class UserDashboard
         ' btnPopular
         ' 
         btnPopular.BorderRadius = 25
-        btnPopular.CustomizableEdges = CustomizableEdges31
+        btnPopular.CustomizableEdges = CustomizableEdges29
         btnPopular.DisabledState.BorderColor = Color.DarkGray
         btnPopular.DisabledState.CustomBorderColor = Color.DarkGray
         btnPopular.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -507,7 +496,7 @@ Partial Class UserDashboard
         btnPopular.ForeColor = Color.White
         btnPopular.Location = New Point(17, 110)
         btnPopular.Name = "btnPopular"
-        btnPopular.ShadowDecoration.CustomizableEdges = CustomizableEdges32
+        btnPopular.ShadowDecoration.CustomizableEdges = CustomizableEdges30
         btnPopular.Size = New Size(238, 108)
         btnPopular.TabIndex = 0
         btnPopular.Text = "📌 Popular Devices"
@@ -516,7 +505,7 @@ Partial Class UserDashboard
         ' 
         btnClear.BackColor = Color.Transparent
         btnClear.BorderRadius = 25
-        btnClear.CustomizableEdges = CustomizableEdges35
+        btnClear.CustomizableEdges = CustomizableEdges33
         btnClear.DisabledState.BorderColor = Color.DarkGray
         btnClear.DisabledState.CustomBorderColor = Color.DarkGray
         btnClear.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -526,7 +515,7 @@ Partial Class UserDashboard
         btnClear.ForeColor = Color.White
         btnClear.Location = New Point(2139, 175)
         btnClear.Name = "btnClear"
-        btnClear.ShadowDecoration.CustomizableEdges = CustomizableEdges36
+        btnClear.ShadowDecoration.CustomizableEdges = CustomizableEdges34
         btnClear.Size = New Size(103, 79)
         btnClear.TabIndex = 19
         btnClear.Text = "Clear"
@@ -536,7 +525,9 @@ Partial Class UserDashboard
         ' 
         AutoScaleDimensions = New SizeF(13F, 32F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(2373, 1116)
+        BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
+        ClientSize = New Size(2323, 1098)
+        Controls.Add(Guna2HtmlLabel6)
         Controls.Add(btnClear)
         Controls.Add(Guna2Panel1)
         Controls.Add(deviceListPanel)
@@ -545,11 +536,8 @@ Partial Class UserDashboard
         Controls.Add(btnSearch)
         Controls.Add(Guna2HtmlLabel1)
         Controls.Add(txtSearch)
-        Controls.Add(Guna2CustomGradientPanel1)
         FormBorderStyle = FormBorderStyle.FixedSingle
         Name = "UserDashboard"
-        Guna2CustomGradientPanel1.ResumeLayout(False)
-        Guna2CustomGradientPanel1.PerformLayout()
         pnlFilters.ResumeLayout(False)
         pnlFilters.PerformLayout()
         deviceListPanel.ResumeLayout(False)
@@ -558,8 +546,6 @@ Partial Class UserDashboard
         ResumeLayout(False)
         PerformLayout()
     End Sub
-
-    Friend WithEvents Guna2CustomGradientPanel1 As Guna.UI2.WinForms.Guna2CustomGradientPanel
     Friend WithEvents txtSearch As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2HtmlLabel1 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents btnSearch As Guna.UI2.WinForms.Guna2Button

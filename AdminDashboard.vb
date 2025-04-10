@@ -1,10 +1,13 @@
 ﻿Imports Microsoft.Data.SqlClient
+
 Public Class AdminDashboard
     Dim connectionString As String = "Data Source=DESKTOP-J1R63G7\SQLEXPRESS;Initial Catalog=test;Integrated Security=True;Trust Server Certificate=True"
+
     Private Sub AdminDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadDevices()
         LoadPerformance()
     End Sub
+
     Private Sub LoadPerformance()
         Using con As New SqlConnection(connectionString)
             con.Open()
@@ -12,25 +15,22 @@ Public Class AdminDashboard
             Dim cmd As New SqlCommand(query, con)
             Dim reader As SqlDataReader = cmd.ExecuteReader()
 
-            performancecmb.Items.Clear() ' Clear previous items
-            performancecmb.MaxDropDownItems = 8 ' Change this value as needed
+            performancecmb.Items.Clear()
+            performancecmb.MaxDropDownItems = 8
 
             Dim dt As New DataTable()
             dt.Load(reader)
 
-            ' Bind data to combo box
             performancecmb.DataSource = dt
             performancecmb.DisplayMember = "ProcessorName"
             performancecmb.ValueMember = "PerformanceID"
 
-            ' Set default selection
             If performancecmb.Items.Count > 0 Then
                 performancecmb.SelectedIndex = 0
             End If
         End Using
     End Sub
 
-    ' Load Devices into DataGridView
     Private Sub LoadDevices()
         Using con As New SqlConnection(connectionString)
             con.Open()
@@ -43,16 +43,13 @@ Public Class AdminDashboard
             dgDevices.ScrollBars = ScrollBars.Both
         End Using
     End Sub
-    ' Add Device
+
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         Using con As New SqlConnection(connectionString)
-
             con.Open()
 
-            ' Debug: Show selected processor
             Dim selectedProcessor As String = performancecmb.Text.Trim()
 
-            ' Get PerformanceID based on selected processor name
             Dim performanceID As Integer = -1
             Dim getPerformanceIDQuery As String = "SELECT PerformanceID FROM Performance WHERE LTRIM(RTRIM(ProcessorName)) = @ProcessorName"
             Using cmdPerf As New SqlCommand(getPerformanceIDQuery, con)
@@ -67,10 +64,8 @@ Public Class AdminDashboard
                 End If
             End Using
 
-            ' Insert into Devices table
             Dim query As String = "INSERT INTO Devices (Name, Brand, PerformanceID, Battery, RAM, Display, Price, Camera) 
                                    VALUES (@Name, @Brand, @PerformanceID, @Battery, @RAM, @Display, @Price, @Camera)"
-
             Using cmd As New SqlCommand(query, con)
                 cmd.Parameters.AddWithValue("@Name", txtName.Text.Trim())
                 cmd.Parameters.AddWithValue("@Brand", txtBrand.Text.Trim())
@@ -83,33 +78,45 @@ Public Class AdminDashboard
 
                 cmd.ExecuteNonQuery()
                 MessageBox.Show("Device Added Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                LoadDevices() ' Refresh device list
+                LoadDevices()
             End Using
-
-
         End Using
 
+        ' Clear all input fields
+        txtName.Clear()
+        txtBrand.Clear()
+        performancecmb.SelectedIndex = -1
+        txtBattery.Clear()
+        txtRAM.Clear()
+        txtDisplay.Clear()
+        txtPrice.Clear()
+        txtCamera.Clear()
+        txtSearch.Clear()
     End Sub
-    ' Delete Selected Device
+
     Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
         If dgDevices.SelectedRows.Count > 0 Then
-            Dim id As Integer = Convert.ToInt32(dgDevices.SelectedRows(0).Cells("ID").Value)
-            Using con As New SqlConnection(connectionString)
-                con.Open()
-                Dim query As String = "DELETE FROM Devices WHERE ID=@ID"
-                Using cmd As New SqlCommand(query, con)
-                    cmd.Parameters.AddWithValue("@ID", id)
-                    cmd.ExecuteNonQuery()
-                    MessageBox.Show("Device Deleted Successfully")
-                    LoadDevices()
+            Try
+                Dim id As Integer = Convert.ToInt32(dgDevices.SelectedRows(0).Cells("DeviceID").Value)
+
+                Using con As New SqlConnection(connectionString)
+                    con.Open()
+                    Dim query As String = "DELETE FROM Devices WHERE DeviceID=@ID"
+                    Using cmd As New SqlCommand(query, con)
+                        cmd.Parameters.AddWithValue("@ID", id)
+                        cmd.ExecuteNonQuery()
+                        MessageBox.Show("Device Deleted Successfully")
+                        LoadDevices()
+                    End Using
                 End Using
-            End Using
+            Catch ex As Exception
+                MessageBox.Show("Error deleting device: " & ex.Message)
+            End Try
         Else
             MessageBox.Show("Please select a device to delete.")
         End If
     End Sub
 
-    ' Search Device
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
         Using con As New SqlConnection(connectionString)
             con.Open()
@@ -145,5 +152,4 @@ Public Class AdminDashboard
         feedbackForm.Show()
         Me.Hide()
     End Sub
-
 End Class

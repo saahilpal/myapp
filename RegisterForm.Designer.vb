@@ -35,6 +35,7 @@ Partial Class RegisterForm
         Dim CustomizableEdges11 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges12 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges13 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(RegisterForm))
         btnBack = New Guna.UI2.WinForms.Guna2Button()
         btnTogglePassword = New Guna.UI2.WinForms.Guna2CircleButton()
         txtName = New Guna.UI2.WinForms.Guna2TextBox()
@@ -57,7 +58,7 @@ Partial Class RegisterForm
         btnBack.FillColor = Color.Tomato
         btnBack.Font = New Font("Segoe UI", 9F)
         btnBack.ForeColor = Color.White
-        btnBack.Location = New Point(535, 922)
+        btnBack.Location = New Point(499, 836)
         btnBack.Margin = New Padding(6, 7, 6, 7)
         btnBack.Name = "btnBack"
         btnBack.ShadowDecoration.CustomizableEdges = CustomizableEdges2
@@ -67,14 +68,15 @@ Partial Class RegisterForm
         ' 
         ' btnTogglePassword
         ' 
+        btnTogglePassword.BackColor = Color.Transparent
         btnTogglePassword.FillColor = Color.DeepSkyBlue
         btnTogglePassword.Font = New Font("Segoe UI", 9F)
         btnTogglePassword.ForeColor = Color.White
-        btnTogglePassword.Location = New Point(765, 617)
+        btnTogglePassword.Location = New Point(765, 538)
         btnTogglePassword.Margin = New Padding(6, 7, 6, 7)
         btnTogglePassword.Name = "btnTogglePassword"
         btnTogglePassword.ShadowDecoration.CustomizableEdges = CustomizableEdges3
-        btnTogglePassword.Size = New Size(70, 70)
+        btnTogglePassword.Size = New Size(80, 80)
         btnTogglePassword.TabIndex = 25
         ' 
         ' txtName
@@ -84,7 +86,7 @@ Partial Class RegisterForm
         txtName.CustomizableEdges = CustomizableEdges4
         txtName.DefaultText = ""
         txtName.Font = New Font("Segoe UI", 9F)
-        txtName.Location = New Point(166, 273)
+        txtName.Location = New Point(166, 194)
         txtName.Margin = New Padding(13, 15, 13, 15)
         txtName.Name = "txtName"
         txtName.PasswordChar = ChrW(0)
@@ -98,7 +100,7 @@ Partial Class RegisterForm
         ' 
         lblTitle.BackColor = Color.Transparent
         lblTitle.Font = New Font("Segoe UI", 20F, FontStyle.Bold)
-        lblTitle.Location = New Point(341, 98)
+        lblTitle.Location = New Point(213, 35)
         lblTitle.Margin = New Padding(6, 7, 6, 7)
         lblTitle.Name = "lblTitle"
         lblTitle.Size = New Size(504, 73)
@@ -109,7 +111,7 @@ Partial Class RegisterForm
         ' 
         lblName.BackColor = Color.Transparent
         lblName.Font = New Font("Segoe UI", 12F)
-        lblName.Location = New Point(166, 223)
+        lblName.Location = New Point(166, 144)
         lblName.Margin = New Padding(6, 7, 6, 7)
         lblName.Name = "lblName"
         lblName.Size = New Size(88, 47)
@@ -120,7 +122,7 @@ Partial Class RegisterForm
         ' 
         lblEmail.BackColor = Color.Transparent
         lblEmail.Font = New Font("Segoe UI", 12F)
-        lblEmail.Location = New Point(166, 396)
+        lblEmail.Location = New Point(166, 317)
         lblEmail.Margin = New Padding(6, 7, 6, 7)
         lblEmail.Name = "lblEmail"
         lblEmail.Size = New Size(79, 47)
@@ -131,7 +133,7 @@ Partial Class RegisterForm
         ' 
         lblPassword.BackColor = Color.Transparent
         lblPassword.Font = New Font("Segoe UI", 12F)
-        lblPassword.Location = New Point(166, 568)
+        lblPassword.Location = New Point(166, 489)
         lblPassword.Margin = New Padding(6, 7, 6, 7)
         lblPassword.Name = "lblPassword"
         lblPassword.Size = New Size(137, 47)
@@ -142,7 +144,7 @@ Partial Class RegisterForm
         ' 
         lblConfirmPassword.BackColor = Color.Transparent
         lblConfirmPassword.Font = New Font("Segoe UI", 12F)
-        lblConfirmPassword.Location = New Point(166, 740)
+        lblConfirmPassword.Location = New Point(166, 661)
         lblConfirmPassword.Margin = New Padding(6, 7, 6, 7)
         lblConfirmPassword.Name = "lblConfirmPassword"
         lblConfirmPassword.Size = New Size(260, 47)
@@ -156,7 +158,7 @@ Partial Class RegisterForm
         btnRegister.CustomizableEdges = CustomizableEdges6
         btnRegister.Font = New Font("Segoe UI", 9F)
         btnRegister.ForeColor = Color.White
-        btnRegister.Location = New Point(62, 922)
+        btnRegister.Location = New Point(66, 836)
         btnRegister.Margin = New Padding(6, 7, 6, 7)
         btnRegister.Name = "btnRegister"
         btnRegister.ShadowDecoration.CustomizableEdges = CustomizableEdges7
@@ -171,7 +173,7 @@ Partial Class RegisterForm
         txtConfirmPassword.CustomizableEdges = CustomizableEdges8
         txtConfirmPassword.DefaultText = ""
         txtConfirmPassword.Font = New Font("Segoe UI", 9F)
-        txtConfirmPassword.Location = New Point(166, 790)
+        txtConfirmPassword.Location = New Point(166, 711)
         txtConfirmPassword.Margin = New Padding(13, 15, 13, 15)
         txtConfirmPassword.Name = "txtConfirmPassword"
         txtConfirmPassword.PasswordChar = ChrW(0)
@@ -188,7 +190,7 @@ Partial Class RegisterForm
         txtEmail.CustomizableEdges = CustomizableEdges10
         txtEmail.DefaultText = ""
         txtEmail.Font = New Font("Segoe UI", 9F)
-        txtEmail.Location = New Point(166, 445)
+        txtEmail.Location = New Point(166, 366)
         txtEmail.Margin = New Padding(13, 15, 13, 15)
         txtEmail.Name = "txtEmail"
         txtEmail.PasswordChar = ChrW(0)
@@ -205,7 +207,7 @@ Partial Class RegisterForm
         txtPassword.CustomizableEdges = CustomizableEdges12
         txtPassword.DefaultText = ""
         txtPassword.Font = New Font("Segoe UI", 9F)
-        txtPassword.Location = New Point(166, 617)
+        txtPassword.Location = New Point(166, 538)
         txtPassword.Margin = New Padding(13, 15, 13, 15)
         txtPassword.Name = "txtPassword"
         txtPassword.PasswordChar = ChrW(0)
@@ -219,7 +221,8 @@ Partial Class RegisterForm
         ' 
         AutoScaleDimensions = New SizeF(13F, 32F)
         AutoScaleMode = AutoScaleMode.Font
-        ClientSize = New Size(1106, 1170)
+        BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
+        ClientSize = New Size(1008, 998)
         Controls.Add(btnBack)
         Controls.Add(btnTogglePassword)
         Controls.Add(txtName)

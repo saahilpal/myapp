@@ -39,6 +39,7 @@ Partial Class compareform
         Dim CustomizableEdges12 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges13 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(compareform))
         Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Guna2HtmlLabel2 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Guna2HtmlLabel3 = New Guna.UI2.WinForms.Guna2HtmlLabel()
@@ -226,6 +227,7 @@ Partial Class compareform
         ' 
         ' btnCompare
         ' 
+        btnCompare.BackColor = Color.Transparent
         btnCompare.BorderRadius = 25
         btnCompare.CustomizableEdges = CustomizableEdges9
         btnCompare.DisabledState.BorderColor = Color.DarkGray
@@ -243,6 +245,7 @@ Partial Class compareform
         ' 
         ' btnClear
         ' 
+        btnClear.BackColor = Color.Transparent
         btnClear.BorderRadius = 25
         btnClear.CustomizableEdges = CustomizableEdges11
         btnClear.DisabledState.BorderColor = Color.DarkGray
@@ -282,6 +285,7 @@ Partial Class compareform
         ' 
         AutoScaleDimensions = New SizeF(13F, 32F)
         AutoScaleMode = AutoScaleMode.Font
+        BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         ClientSize = New Size(2045, 997)
         Controls.Add(btnBack)
         Controls.Add(btnClear)

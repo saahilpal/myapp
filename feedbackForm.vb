@@ -64,10 +64,14 @@ Public Class feedbackForm
         End Select
     End Function
 
-    Private Sub btnBack_Click(sender As Object, e As EventArgs)
+
+
+    Private Sub btnBack_Click_1(sender As Object, e As EventArgs) Handles btnBack.Click
         If callerForm IsNot Nothing Then
-            callerForm.Show
+            callerForm.Show()
         End If
-        Close
+        Close()
     End Sub
+
+
 End Class

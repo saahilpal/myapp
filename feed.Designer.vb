@@ -31,6 +31,7 @@ Partial Class feed
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(feed))
         Refreshbtn = New Guna.UI2.WinForms.Guna2Button()
         Backbtn = New Guna.UI2.WinForms.Guna2Button()
         dgfeed = New Guna.UI2.WinForms.Guna2DataGridView()
@@ -39,6 +40,7 @@ Partial Class feed
         ' 
         ' Refreshbtn
         ' 
+        Refreshbtn.BackColor = Color.Transparent
         Refreshbtn.BorderRadius = 25
         Refreshbtn.CustomizableEdges = CustomizableEdges1
         Refreshbtn.DisabledState.BorderColor = Color.DarkGray
@@ -56,6 +58,7 @@ Partial Class feed
         ' 
         ' Backbtn
         ' 
+        Backbtn.BackColor = Color.Transparent
         Backbtn.BorderRadius = 25
         Backbtn.CustomizableEdges = CustomizableEdges3
         Backbtn.DisabledState.BorderColor = Color.DarkGray
@@ -145,6 +148,7 @@ Partial Class feed
         ' 
         AutoScaleDimensions = New SizeF(13F, 32F)
         AutoScaleMode = AutoScaleMode.Font
+        BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         ClientSize = New Size(1798, 1019)
         Controls.Add(dgfeed)
         Controls.Add(Backbtn)
