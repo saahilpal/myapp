@@ -12,6 +12,10 @@ Public Class UserDashboard
         dgDevices.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
         dgDevices.AllowUserToAddRows = False
         dgDevices.ScrollBars = ScrollBars.Both
+
+        cboPrice.DrawMode = DrawMode.OwnerDrawVariable
+        AddHandler cboPrice.MeasureItem, AddressOf cboPrice_MeasureItem
+        AddHandler cboPrice.DrawItem, AddressOf cboPrice_DrawItem
     End Sub
 
     Private Sub UserDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -39,12 +43,43 @@ Public Class UserDashboard
 
             cboPrice.Items.Clear()
             cboPrice.Items.Add("All")
-            cboPrice.Items.Add("Budget (₹0 – ₹25,000)")
-            cboPrice.Items.Add("Mid-Range (₹25,001 – ₹50,000)")
-            cboPrice.Items.Add("Premium (₹50,001 and above)")
+            cboPrice.Items.Add("Budget (<25K)" & Environment.NewLine & "(\u20B90 – \u20B925,000)")
+            cboPrice.Items.Add("Mid-Range(20k-50k)" & Environment.NewLine & "(\u20B925,001 – \u20B950,000)")
+            cboPrice.Items.Add("Premium(>50k)" & Environment.NewLine & "(\u20B950,001 and above)")
 
             cboBattery.Items.AddRange({"All", "Medium Capacity", "High Capacity"})
         End Using
+    End Sub
+
+    Private Sub cboPrice_DrawItem(sender As Object, e As DrawItemEventArgs)
+        If e.Index < 0 Then Return
+
+        e.DrawBackground()
+        Dim text = cboPrice.Items(e.Index).ToString()
+        Dim lines = text.Split(New String() {Environment.NewLine}, StringSplitOptions.None)
+
+        Dim format As New StringFormat()
+        format.LineAlignment = StringAlignment.Near
+
+        Using brush As Brush = New SolidBrush(e.ForeColor)
+            Dim rect = e.Bounds
+            If lines.Length > 1 Then
+                e.Graphics.DrawString(lines(0), cboPrice.Font, brush, rect.X, rect.Y)
+                e.Graphics.DrawString(lines(1), cboPrice.Font, brush, rect.X, rect.Y + cboPrice.Font.Height)
+            Else
+                e.Graphics.DrawString(text, cboPrice.Font, brush, rect)
+            End If
+        End Using
+
+        e.DrawFocusRectangle()
+    End Sub
+
+    Private Sub cboPrice_MeasureItem(sender As Object, e As MeasureItemEventArgs)
+        If e.Index < 0 Then Return
+
+        Dim text = cboPrice.Items(e.Index).ToString()
+        Dim lines = text.Split(New String() {Environment.NewLine}, StringSplitOptions.None)
+        e.ItemHeight = cboPrice.Font.Height * lines.Length
     End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
@@ -73,11 +108,8 @@ Public Class UserDashboard
             dgDevices.Columns.Clear()
             dgDevices.DataSource = table
 
-            ' Hide DeviceID column after binding data
             HideDeviceIDColumn()
-
             AddWishlistButtonColumn()
-
             dgDevices.Visible = True
 
             If table.Rows.Count = 0 Then
@@ -150,9 +182,7 @@ Public Class UserDashboard
             dgDevices.DataSource = table
 
             HideDeviceIDColumn()
-
             AddWishlistButtonColumn()
-
             dgDevices.Visible = True
 
             If table.Rows.Count = 0 Then

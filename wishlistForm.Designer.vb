@@ -39,6 +39,7 @@ Partial Class wishlistForm
         btnBack = New Guna.UI2.WinForms.Guna2Button()
         btnLogout = New Guna.UI2.WinForms.Guna2Button()
         btnFeedback = New Guna.UI2.WinForms.Guna2Button()
+        Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         CType(dgWishlist, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -170,12 +171,23 @@ Partial Class wishlistForm
         btnFeedback.TabIndex = 5
         btnFeedback.Text = "💬 Feedback"
         ' 
+        ' Guna2HtmlLabel1
+        ' 
+        Guna2HtmlLabel1.BackColor = Color.Transparent
+        Guna2HtmlLabel1.Font = New Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        Guna2HtmlLabel1.Location = New Point(736, 39)
+        Guna2HtmlLabel1.Name = "Guna2HtmlLabel1"
+        Guna2HtmlLabel1.Size = New Size(269, 88)
+        Guna2HtmlLabel1.TabIndex = 6
+        Guna2HtmlLabel1.Text = "Wishlists"
+        ' 
         ' wishlistForm
         ' 
         AutoScaleDimensions = New SizeF(13F, 32F)
         AutoScaleMode = AutoScaleMode.Font
         BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), Image)
         ClientSize = New Size(1719, 1019)
+        Controls.Add(Guna2HtmlLabel1)
         Controls.Add(btnFeedback)
         Controls.Add(btnLogout)
         Controls.Add(btnBack)
@@ -185,6 +197,7 @@ Partial Class wishlistForm
         Text = "wishlistForm"
         CType(dgWishlist, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
+        PerformLayout()
     End Sub
     Friend WithEvents dgWishlist As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents DeviceName As DataGridViewTextBoxColumn
@@ -194,4 +207,5 @@ Partial Class wishlistForm
     Friend WithEvents btnBack As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnLogout As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents btnFeedback As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents Guna2HtmlLabel1 As Guna.UI2.WinForms.Guna2HtmlLabel
 End Class
