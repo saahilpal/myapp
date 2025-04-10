@@ -17,32 +17,32 @@ Public Class feedbackForm
         InitializeComponent()
     End Sub
 
-    Private Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click
+    Private Sub btnSubmit_Click(sender As Object, e As EventArgs) Handles btnSubmit.Click, btnSubmit.Click
         If ratingStars.Value = 0 Then
             MessageBox.Show("Please select a rating before submitting.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Exit Sub
         End If
 
         Dim rating As Decimal = ratingStars.Value
-        Dim comment As String = txtFeedback.Text.Trim()
+        Dim comment = txtFeedback.Text.Trim
 
         Try
             Using con As New SqlConnection(connectionString)
-                con.Open()
-                Dim query As String = "INSERT INTO Feedback (UserID, Rating, Comment, CreatedAt) VALUES (@UserID, @Rating, @Comment, GETDATE())"
+                con.Open
+                Dim query = "INSERT INTO Feedback (UserID, Rating, Comment, CreatedAt) VALUES (@UserID, @Rating, @Comment, GETDATE())"
                 Using cmd As New SqlCommand(query, con)
                     cmd.Parameters.AddWithValue("@UserID", LoggedInUserID)
                     cmd.Parameters.AddWithValue("@Rating", rating)
                     cmd.Parameters.AddWithValue("@Comment", If(comment = "", DBNull.Value, comment))
 
-                    Dim result As Integer = cmd.ExecuteNonQuery()
+                    Dim result = cmd.ExecuteNonQuery
 
                     If result > 0 Then
                         MessageBox.Show(GetFeedbackResponse(rating), "Thank You", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
                         ' Auto-close and return to caller
-                        If callerForm IsNot Nothing Then callerForm.Show()
-                        Me.Close()
+                        If callerForm IsNot Nothing Then callerForm.Show
+                        Close
                     Else
                         MessageBox.Show("Failed to submit feedback. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     End If
@@ -64,10 +64,10 @@ Public Class feedbackForm
         End Select
     End Function
 
-    Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
+    Private Sub btnBack_Click(sender As Object, e As EventArgs)
         If callerForm IsNot Nothing Then
-            callerForm.Show()
+            callerForm.Show
         End If
-        Me.Close()
+        Close
     End Sub
 End Class

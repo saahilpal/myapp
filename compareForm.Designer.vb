@@ -22,23 +22,23 @@ Partial Class compareform
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim CustomizableEdges15 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges16 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges17 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges18 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges19 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges20 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges21 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges22 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim CustomizableEdges23 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges24 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges25 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges26 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges27 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges28 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges7 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim CustomizableEdges9 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges11 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges12 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges13 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Guna2HtmlLabel2 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Guna2HtmlLabel3 = New Guna.UI2.WinForms.Guna2HtmlLabel()
@@ -108,7 +108,7 @@ Partial Class compareform
         ' cbBrand1
         ' 
         cbBrand1.BackColor = Color.Transparent
-        cbBrand1.CustomizableEdges = CustomizableEdges15
+        cbBrand1.CustomizableEdges = CustomizableEdges1
         cbBrand1.DrawMode = DrawMode.OwnerDrawFixed
         cbBrand1.DropDownStyle = ComboBoxStyle.DropDownList
         cbBrand1.FocusedColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
@@ -118,14 +118,14 @@ Partial Class compareform
         cbBrand1.ItemHeight = 30
         cbBrand1.Location = New Point(252, 240)
         cbBrand1.Name = "cbBrand1"
-        cbBrand1.ShadowDecoration.CustomizableEdges = CustomizableEdges16
+        cbBrand1.ShadowDecoration.CustomizableEdges = CustomizableEdges2
         cbBrand1.Size = New Size(280, 36)
         cbBrand1.TabIndex = 5
         ' 
         ' cbDevice1
         ' 
         cbDevice1.BackColor = Color.Transparent
-        cbDevice1.CustomizableEdges = CustomizableEdges17
+        cbDevice1.CustomizableEdges = CustomizableEdges3
         cbDevice1.DrawMode = DrawMode.OwnerDrawFixed
         cbDevice1.DropDownStyle = ComboBoxStyle.DropDownList
         cbDevice1.FocusedColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
@@ -135,14 +135,14 @@ Partial Class compareform
         cbDevice1.ItemHeight = 30
         cbDevice1.Location = New Point(717, 240)
         cbDevice1.Name = "cbDevice1"
-        cbDevice1.ShadowDecoration.CustomizableEdges = CustomizableEdges18
+        cbDevice1.ShadowDecoration.CustomizableEdges = CustomizableEdges4
         cbDevice1.Size = New Size(280, 36)
         cbDevice1.TabIndex = 6
         ' 
         ' cbBrand2
         ' 
         cbBrand2.BackColor = Color.Transparent
-        cbBrand2.CustomizableEdges = CustomizableEdges19
+        cbBrand2.CustomizableEdges = CustomizableEdges5
         cbBrand2.DrawMode = DrawMode.OwnerDrawFixed
         cbBrand2.DropDownStyle = ComboBoxStyle.DropDownList
         cbBrand2.FocusedColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
@@ -152,14 +152,14 @@ Partial Class compareform
         cbBrand2.ItemHeight = 30
         cbBrand2.Location = New Point(1266, 240)
         cbBrand2.Name = "cbBrand2"
-        cbBrand2.ShadowDecoration.CustomizableEdges = CustomizableEdges20
+        cbBrand2.ShadowDecoration.CustomizableEdges = CustomizableEdges6
         cbBrand2.Size = New Size(280, 36)
         cbBrand2.TabIndex = 7
         ' 
         ' cbDevice2
         ' 
         cbDevice2.BackColor = Color.Transparent
-        cbDevice2.CustomizableEdges = CustomizableEdges21
+        cbDevice2.CustomizableEdges = CustomizableEdges7
         cbDevice2.DrawMode = DrawMode.OwnerDrawFixed
         cbDevice2.DropDownStyle = ComboBoxStyle.DropDownList
         cbDevice2.FocusedColor = Color.FromArgb(CByte(94), CByte(148), CByte(255))
@@ -169,31 +169,32 @@ Partial Class compareform
         cbDevice2.ItemHeight = 30
         cbDevice2.Location = New Point(1710, 240)
         cbDevice2.Name = "cbDevice2"
-        cbDevice2.ShadowDecoration.CustomizableEdges = CustomizableEdges22
+        cbDevice2.ShadowDecoration.CustomizableEdges = CustomizableEdges8
         cbDevice2.Size = New Size(280, 36)
         cbDevice2.TabIndex = 8
         ' 
         ' dgvCompare
         ' 
-        DataGridViewCellStyle4.BackColor = Color.White
-        dgvCompare.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
-        DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = Color.FromArgb(CByte(100), CByte(88), CByte(255))
-        DataGridViewCellStyle5.Font = New Font("Segoe UI", 9F)
-        DataGridViewCellStyle5.ForeColor = Color.White
-        DataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = DataGridViewTriState.True
-        dgvCompare.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
-        dgvCompare.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = Color.White
-        DataGridViewCellStyle6.Font = New Font("Segoe UI", 9F)
-        DataGridViewCellStyle6.ForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
-        DataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
-        DataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
-        DataGridViewCellStyle6.WrapMode = DataGridViewTriState.False
-        dgvCompare.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle1.BackColor = Color.White
+        dgvCompare.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = Color.FromArgb(CByte(100), CByte(88), CByte(255))
+        DataGridViewCellStyle2.Font = New Font("Segoe UI", 9F)
+        DataGridViewCellStyle2.ForeColor = Color.White
+        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.True
+        dgvCompare.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        dgvCompare.ColumnHeadersHeight = 4
+        dgvCompare.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
+        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = Color.White
+        DataGridViewCellStyle3.Font = New Font("Segoe UI", 9F)
+        DataGridViewCellStyle3.ForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        DataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
+        DataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(CByte(71), CByte(69), CByte(94))
+        DataGridViewCellStyle3.WrapMode = DataGridViewTriState.False
+        dgvCompare.DefaultCellStyle = DataGridViewCellStyle3
         dgvCompare.GridColor = Color.FromArgb(CByte(231), CByte(229), CByte(255))
         dgvCompare.Location = New Point(117, 421)
         dgvCompare.Name = "dgvCompare"
@@ -212,7 +213,7 @@ Partial Class compareform
         dgvCompare.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None
         dgvCompare.ThemeStyle.HeaderStyle.Font = New Font("Segoe UI", 9F)
         dgvCompare.ThemeStyle.HeaderStyle.ForeColor = Color.White
-        dgvCompare.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        dgvCompare.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing
         dgvCompare.ThemeStyle.HeaderStyle.Height = 4
         dgvCompare.ThemeStyle.ReadOnly = False
         dgvCompare.ThemeStyle.RowsStyle.BackColor = Color.White
@@ -226,16 +227,16 @@ Partial Class compareform
         ' btnCompare
         ' 
         btnCompare.BorderRadius = 25
-        btnCompare.CustomizableEdges = CustomizableEdges23
+        btnCompare.CustomizableEdges = CustomizableEdges9
         btnCompare.DisabledState.BorderColor = Color.DarkGray
         btnCompare.DisabledState.CustomBorderColor = Color.DarkGray
         btnCompare.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
         btnCompare.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
-        btnCompare.Font = New Font("Segoe UI", 9F)
+        btnCompare.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnCompare.ForeColor = Color.White
         btnCompare.Location = New Point(899, 333)
         btnCompare.Name = "btnCompare"
-        btnCompare.ShadowDecoration.CustomizableEdges = CustomizableEdges24
+        btnCompare.ShadowDecoration.CustomizableEdges = CustomizableEdges10
         btnCompare.Size = New Size(267, 70)
         btnCompare.TabIndex = 10
         btnCompare.Text = "Compare"
@@ -243,36 +244,39 @@ Partial Class compareform
         ' btnClear
         ' 
         btnClear.BorderRadius = 25
-        btnClear.CustomizableEdges = CustomizableEdges25
+        btnClear.CustomizableEdges = CustomizableEdges11
         btnClear.DisabledState.BorderColor = Color.DarkGray
         btnClear.DisabledState.CustomBorderColor = Color.DarkGray
         btnClear.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
         btnClear.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
-        btnClear.Font = New Font("Segoe UI", 9F)
+        btnClear.FillColor = Color.FromArgb(CByte(100), CByte(181), CByte(246))
+        btnClear.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnClear.ForeColor = Color.White
         btnClear.Location = New Point(1379, 915)
         btnClear.Name = "btnClear"
-        btnClear.ShadowDecoration.CustomizableEdges = CustomizableEdges26
+        btnClear.ShadowDecoration.CustomizableEdges = CustomizableEdges12
         btnClear.Size = New Size(267, 70)
         btnClear.TabIndex = 11
         btnClear.Text = "Clear"
         ' 
         ' btnBack
         ' 
+        btnBack.BackColor = Color.Transparent
         btnBack.BorderRadius = 25
-        btnBack.CustomizableEdges = CustomizableEdges27
+        btnBack.CustomizableEdges = CustomizableEdges13
         btnBack.DisabledState.BorderColor = Color.DarkGray
         btnBack.DisabledState.CustomBorderColor = Color.DarkGray
         btnBack.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
         btnBack.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
-        btnBack.Font = New Font("Segoe UI", 9F)
+        btnBack.FillColor = Color.FromArgb(CByte(211), CByte(47), CByte(47))
+        btnBack.Font = New Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         btnBack.ForeColor = Color.White
         btnBack.Location = New Point(564, 915)
         btnBack.Name = "btnBack"
-        btnBack.ShadowDecoration.CustomizableEdges = CustomizableEdges28
+        btnBack.ShadowDecoration.CustomizableEdges = CustomizableEdges14
         btnBack.Size = New Size(267, 70)
         btnBack.TabIndex = 12
-        btnBack.Text = "Back"
+        btnBack.Text = "🔙 Back"
         ' 
         ' compareform
         ' 

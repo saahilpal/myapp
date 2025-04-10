@@ -26,33 +26,21 @@ Partial Class feed
         Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges4 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Guna2GradientPanel1 = New Guna.UI2.WinForms.Guna2GradientPanel()
         Refreshbtn = New Guna.UI2.WinForms.Guna2Button()
         Backbtn = New Guna.UI2.WinForms.Guna2Button()
         dgfeed = New Guna.UI2.WinForms.Guna2DataGridView()
         CType(dgfeed, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
-        ' Guna2GradientPanel1
-        ' 
-        Guna2GradientPanel1.CustomizableEdges = CustomizableEdges1
-        Guna2GradientPanel1.Location = New Point(-4, 3)
-        Guna2GradientPanel1.Name = "Guna2GradientPanel1"
-        Guna2GradientPanel1.ShadowDecoration.CustomizableEdges = CustomizableEdges2
-        Guna2GradientPanel1.Size = New Size(1449, 166)
-        Guna2GradientPanel1.TabIndex = 0
-        ' 
         ' Refreshbtn
         ' 
         Refreshbtn.BorderRadius = 25
-        Refreshbtn.CustomizableEdges = CustomizableEdges3
+        Refreshbtn.CustomizableEdges = CustomizableEdges1
         Refreshbtn.DisabledState.BorderColor = Color.DarkGray
         Refreshbtn.DisabledState.CustomBorderColor = Color.DarkGray
         Refreshbtn.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -61,7 +49,7 @@ Partial Class feed
         Refreshbtn.ForeColor = Color.White
         Refreshbtn.Location = New Point(337, 862)
         Refreshbtn.Name = "Refreshbtn"
-        Refreshbtn.ShadowDecoration.CustomizableEdges = CustomizableEdges4
+        Refreshbtn.ShadowDecoration.CustomizableEdges = CustomizableEdges2
         Refreshbtn.Size = New Size(263, 71)
         Refreshbtn.TabIndex = 2
         Refreshbtn.Text = "Refresh"
@@ -69,7 +57,7 @@ Partial Class feed
         ' Backbtn
         ' 
         Backbtn.BorderRadius = 25
-        Backbtn.CustomizableEdges = CustomizableEdges5
+        Backbtn.CustomizableEdges = CustomizableEdges3
         Backbtn.DisabledState.BorderColor = Color.DarkGray
         Backbtn.DisabledState.CustomBorderColor = Color.DarkGray
         Backbtn.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -79,7 +67,7 @@ Partial Class feed
         Backbtn.ForeColor = Color.White
         Backbtn.Location = New Point(1028, 862)
         Backbtn.Name = "Backbtn"
-        Backbtn.ShadowDecoration.CustomizableEdges = CustomizableEdges6
+        Backbtn.ShadowDecoration.CustomizableEdges = CustomizableEdges4
         Backbtn.Size = New Size(279, 71)
         Backbtn.TabIndex = 4
         Backbtn.Text = "🔙 Back"
@@ -161,14 +149,11 @@ Partial Class feed
         Controls.Add(dgfeed)
         Controls.Add(Backbtn)
         Controls.Add(Refreshbtn)
-        Controls.Add(Guna2GradientPanel1)
         Name = "feed"
         Text = "feed"
         CType(dgfeed, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
     End Sub
-
-    Friend WithEvents Guna2GradientPanel1 As Guna.UI2.WinForms.Guna2GradientPanel
     Friend WithEvents Refreshbtn As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Backbtn As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents dgfeed As Guna.UI2.WinForms.Guna2DataGridView
