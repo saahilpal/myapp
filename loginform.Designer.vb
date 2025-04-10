@@ -22,8 +22,8 @@ Partial Class loginform
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim CustomizableEdges13 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges14 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges15 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges1 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges2 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges3 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
@@ -31,13 +31,15 @@ Partial Class loginform
         Dim CustomizableEdges5 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges6 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges7 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(loginform))
         Dim CustomizableEdges8 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(loginform))
         Dim CustomizableEdges9 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges10 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges11 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Dim CustomizableEdges12 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
+        Dim CustomizableEdges13 As Guna.UI2.WinForms.Suite.CustomizableEdges = New Guna.UI2.WinForms.Suite.CustomizableEdges()
         Guna2CustomGradientPanel1 = New Guna.UI2.WinForms.Guna2CustomGradientPanel()
+        btnTogglePassword = New Guna.UI2.WinForms.Guna2CircleButton()
         txtPassword = New Guna.UI2.WinForms.Guna2TextBox()
         txtEmail = New Guna.UI2.WinForms.Guna2TextBox()
         Guna2HtmlLabel3 = New Guna.UI2.WinForms.Guna2HtmlLabel()
@@ -53,6 +55,7 @@ Partial Class loginform
         ' 
         ' Guna2CustomGradientPanel1
         ' 
+        Guna2CustomGradientPanel1.Controls.Add(btnTogglePassword)
         Guna2CustomGradientPanel1.Controls.Add(txtPassword)
         Guna2CustomGradientPanel1.Controls.Add(txtEmail)
         Guna2CustomGradientPanel1.Controls.Add(Guna2HtmlLabel3)
@@ -62,7 +65,7 @@ Partial Class loginform
         Guna2CustomGradientPanel1.Controls.Add(Guna2PictureBox1)
         Guna2CustomGradientPanel1.Controls.Add(Guna2Button1)
         Guna2CustomGradientPanel1.Controls.Add(Guna2Button2)
-        Guna2CustomGradientPanel1.CustomizableEdges = CustomizableEdges13
+        Guna2CustomGradientPanel1.CustomizableEdges = CustomizableEdges14
         Guna2CustomGradientPanel1.Dock = DockStyle.Right
         Guna2CustomGradientPanel1.FillColor = Color.DeepSkyBlue
         Guna2CustomGradientPanel1.FillColor2 = Color.LightSkyBlue
@@ -70,14 +73,30 @@ Partial Class loginform
         Guna2CustomGradientPanel1.FillColor4 = Color.LightSkyBlue
         Guna2CustomGradientPanel1.Location = New Point(-114, 0)
         Guna2CustomGradientPanel1.Name = "Guna2CustomGradientPanel1"
-        Guna2CustomGradientPanel1.ShadowDecoration.CustomizableEdges = CustomizableEdges14
+        Guna2CustomGradientPanel1.ShadowDecoration.CustomizableEdges = CustomizableEdges15
         Guna2CustomGradientPanel1.Size = New Size(2180, 1129)
         Guna2CustomGradientPanel1.TabIndex = 0
+        ' 
+        ' btnTogglePassword
+        ' 
+        btnTogglePassword.BackColor = Color.Transparent
+        btnTogglePassword.DisabledState.BorderColor = Color.DarkGray
+        btnTogglePassword.DisabledState.CustomBorderColor = Color.DarkGray
+        btnTogglePassword.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
+        btnTogglePassword.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
+        btnTogglePassword.Font = New Font("Segoe UI", 9F)
+        btnTogglePassword.ForeColor = Color.White
+        btnTogglePassword.Location = New Point(1600, 575)
+        btnTogglePassword.Name = "btnTogglePassword"
+        btnTogglePassword.ShadowDecoration.CustomizableEdges = CustomizableEdges1
+        btnTogglePassword.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
+        btnTogglePassword.Size = New Size(70, 70)
+        btnTogglePassword.TabIndex = 9
         ' 
         ' txtPassword
         ' 
         txtPassword.BorderRadius = 10
-        txtPassword.CustomizableEdges = CustomizableEdges1
+        txtPassword.CustomizableEdges = CustomizableEdges2
         txtPassword.DefaultText = ""
         txtPassword.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         txtPassword.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
@@ -92,14 +111,14 @@ Partial Class loginform
         txtPassword.PasswordChar = ChrW(0)
         txtPassword.PlaceholderText = "Enter Your password"
         txtPassword.SelectedText = ""
-        txtPassword.ShadowDecoration.CustomizableEdges = CustomizableEdges2
+        txtPassword.ShadowDecoration.CustomizableEdges = CustomizableEdges3
         txtPassword.Size = New Size(580, 73)
         txtPassword.TabIndex = 6
         ' 
         ' txtEmail
         ' 
         txtEmail.BorderRadius = 10
-        txtEmail.CustomizableEdges = CustomizableEdges3
+        txtEmail.CustomizableEdges = CustomizableEdges4
         txtEmail.DefaultText = ""
         txtEmail.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         txtEmail.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
@@ -114,7 +133,7 @@ Partial Class loginform
         txtEmail.PasswordChar = ChrW(0)
         txtEmail.PlaceholderText = " Enter Your E-mail"
         txtEmail.SelectedText = ""
-        txtEmail.ShadowDecoration.CustomizableEdges = CustomizableEdges4
+        txtEmail.ShadowDecoration.CustomizableEdges = CustomizableEdges5
         txtEmail.Size = New Size(580, 79)
         txtEmail.TabIndex = 5
         ' 
@@ -130,7 +149,7 @@ Partial Class loginform
         ' 
         ' Guna2TextBox1
         ' 
-        Guna2TextBox1.CustomizableEdges = CustomizableEdges5
+        Guna2TextBox1.CustomizableEdges = CustomizableEdges6
         Guna2TextBox1.DefaultText = ""
         Guna2TextBox1.DisabledState.BorderColor = Color.FromArgb(CByte(208), CByte(208), CByte(208))
         Guna2TextBox1.DisabledState.FillColor = Color.FromArgb(CByte(226), CByte(226), CByte(226))
@@ -145,7 +164,7 @@ Partial Class loginform
         Guna2TextBox1.PasswordChar = ChrW(0)
         Guna2TextBox1.PlaceholderText = ""
         Guna2TextBox1.SelectedText = ""
-        Guna2TextBox1.ShadowDecoration.CustomizableEdges = CustomizableEdges6
+        Guna2TextBox1.ShadowDecoration.CustomizableEdges = CustomizableEdges7
         Guna2TextBox1.Size = New Size(417, 79)
         Guna2TextBox1.TabIndex = 3
         ' 
@@ -162,21 +181,22 @@ Partial Class loginform
         ' 
         Guna2HtmlLabel1.BackColor = Color.Transparent
         Guna2HtmlLabel1.Font = New Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, CByte(0))
+        Guna2HtmlLabel1.ForeColor = Color.Black
         Guna2HtmlLabel1.Location = New Point(874, 470)
         Guna2HtmlLabel1.Name = "Guna2HtmlLabel1"
-        Guna2HtmlLabel1.Size = New Size(107, 47)
+        Guna2HtmlLabel1.Size = New Size(92, 47)
         Guna2HtmlLabel1.TabIndex = 1
-        Guna2HtmlLabel1.Text = "User ID"
+        Guna2HtmlLabel1.Text = "E-mail"
         ' 
         ' Guna2PictureBox1
         ' 
         Guna2PictureBox1.BackColor = Color.Transparent
-        Guna2PictureBox1.CustomizableEdges = CustomizableEdges7
+        Guna2PictureBox1.CustomizableEdges = CustomizableEdges8
         Guna2PictureBox1.Image = CType(resources.GetObject("Guna2PictureBox1.Image"), Image)
         Guna2PictureBox1.ImageRotate = 0F
         Guna2PictureBox1.Location = New Point(113, 173)
         Guna2PictureBox1.Name = "Guna2PictureBox1"
-        Guna2PictureBox1.ShadowDecoration.CustomizableEdges = CustomizableEdges8
+        Guna2PictureBox1.ShadowDecoration.CustomizableEdges = CustomizableEdges9
         Guna2PictureBox1.Size = New Size(755, 757)
         Guna2PictureBox1.TabIndex = 0
         Guna2PictureBox1.TabStop = False
@@ -187,7 +207,7 @@ Partial Class loginform
         Guna2Button1.BackColor = Color.Transparent
         Guna2Button1.BorderRadius = 25
         Guna2Button1.CustomBorderColor = Color.LightSkyBlue
-        Guna2Button1.CustomizableEdges = CustomizableEdges9
+        Guna2Button1.CustomizableEdges = CustomizableEdges10
         Guna2Button1.DisabledState.BorderColor = Color.DarkGray
         Guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray
         Guna2Button1.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
@@ -196,7 +216,7 @@ Partial Class loginform
         Guna2Button1.ForeColor = Color.White
         Guna2Button1.Location = New Point(856, 757)
         Guna2Button1.Name = "Guna2Button1"
-        Guna2Button1.ShadowDecoration.CustomizableEdges = CustomizableEdges10
+        Guna2Button1.ShadowDecoration.CustomizableEdges = CustomizableEdges11
         Guna2Button1.Size = New Size(360, 90)
         Guna2Button1.TabIndex = 7
         Guna2Button1.Text = "Login"
@@ -207,17 +227,17 @@ Partial Class loginform
         Guna2Button2.BackColor = Color.Transparent
         Guna2Button2.BorderRadius = 25
         Guna2Button2.CustomBorderColor = Color.LightSkyBlue
-        Guna2Button2.CustomizableEdges = CustomizableEdges11
+        Guna2Button2.CustomizableEdges = CustomizableEdges12
         Guna2Button2.DisabledState.BorderColor = Color.DarkGray
         Guna2Button2.DisabledState.CustomBorderColor = Color.DarkGray
         Guna2Button2.DisabledState.FillColor = Color.FromArgb(CByte(169), CByte(169), CByte(169))
         Guna2Button2.DisabledState.ForeColor = Color.FromArgb(CByte(141), CByte(141), CByte(141))
         Guna2Button2.FillColor = Color.LimeGreen
-        Guna2Button2.Font = New Font("Segoe UI", 9F)
+        Guna2Button2.Font = New Font("Segoe UI", 18F, FontStyle.Bold)
         Guna2Button2.ForeColor = Color.White
         Guna2Button2.Location = New Point(1304, 757)
         Guna2Button2.Name = "Guna2Button2"
-        Guna2Button2.ShadowDecoration.CustomizableEdges = CustomizableEdges12
+        Guna2Button2.ShadowDecoration.CustomizableEdges = CustomizableEdges13
         Guna2Button2.Size = New Size(360, 90)
         Guna2Button2.TabIndex = 8
         Guna2Button2.Text = "Register"
@@ -250,5 +270,6 @@ Partial Class loginform
     Friend WithEvents Guna2TextBox1 As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2HtmlLabel2 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents Guna2HtmlLabel1 As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents btnTogglePassword As Guna.UI2.WinForms.Guna2CircleButton
 
 End Class
